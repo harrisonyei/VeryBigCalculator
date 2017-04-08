@@ -118,6 +118,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BigObject\library\BigNum.h" />
+    <ClInclude Include="BigObject\library\Complex.h" />
+    <ClInclude Include="BigObject\library\Decimal.h" />
+    <ClInclude Include="BigObject\library\Integer.h" />
+    <ClInclude Include="BigObject\library\NumberObject.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
