@@ -124,6 +124,13 @@
     <ClInclude Include="BigObject\library\Integer.h" />
     <ClInclude Include="BigObject\library\NumberObject.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BigObject\BigNum.cpp" />
+    <ClCompile Include="BigObject\Complex.cpp" />
+    <ClCompile Include="BigObject\Decimal.cpp" />
+    <ClCompile Include="BigObject\Integer.cpp" />
+    <ClCompile Include="BigObject\NumberObject.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

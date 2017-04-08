@@ -49,4 +49,21 @@
       <Filter>Header Files\BigObject</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BigObject\BigNum.cpp">
+      <Filter>Resource Files\BigObject</Filter>
+    </ClCompile>
+    <ClCompile Include="BigObject\Complex.cpp">
+      <Filter>Resource Files\BigObject</Filter>
+    </ClCompile>
+    <ClCompile Include="BigObject\Decimal.cpp">
+      <Filter>Resource Files\BigObject</Filter>
+    </ClCompile>
+    <ClCompile Include="BigObject\Integer.cpp">
+      <Filter>Resource Files\BigObject</Filter>
+    </ClCompile>
+    <ClCompile Include="BigObject\NumberObject.cpp">
+      <Filter>Resource Files\BigObject</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>

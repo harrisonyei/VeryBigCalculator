@@ -4,7 +4,7 @@
 
 const int COMPLEX_POINT_SIZE = 10;
 
-class Complex :NumberObject{
+class Complex :NumberObject {
 private:
 	Decimal real; //¹ê³¡
 	Decimal imag; //µê³¡
