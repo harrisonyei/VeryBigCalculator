@@ -133,6 +133,7 @@ namespace BigCalculator {
 			this->number1->TabIndex = 0;
 			this->number1->Text = L"1";
 			this->number1->UseVisualStyleBackColor = true;
+			this->number1->Click += gcnew System::EventHandler(this,&CalculatorGUI::number1_Click);
 			// 
 			// label1
 			// 
@@ -321,6 +322,7 @@ namespace BigCalculator {
 			this->controlClear->TabIndex = 21;
 			this->controlClear->Text = L"CLR";
 			this->controlClear->UseVisualStyleBackColor = true;
+			this->controlClear->Click += gcnew System::EventHandler(this,&CalculatorGUI::controlClear_Click);
 			// 
 			// operatorPow
 			// 
@@ -358,7 +360,7 @@ namespace BigCalculator {
 			this->signPI->Text = L"PI";
 			this->signPI->UseVisualStyleBackColor = true;
 			// 
-			// MyForm
+			// CalculatorGUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6,13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
@@ -389,13 +391,16 @@ namespace BigCalculator {
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->number1);
-			this->Name = L"MyForm";
+			this->Name = L"CalculatorGUI";
 			this->Text = L"MyForm";
-			this->Load += gcnew System::EventHandler(this,&MyForm::MyForm_Load);
+			this->Load += gcnew System::EventHandler(this,&CalculatorGUI::MyForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	};
+private: 
+	System::Void MyForm_Load(System::Object^  sender,System::EventArgs^  e){
+	}
+};
 }
