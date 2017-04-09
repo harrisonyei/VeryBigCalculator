@@ -71,11 +71,11 @@
     <ClCompile Include="Operation\CalculatorCore.cpp">
       <Filter>Resource Files\Operation</Filter>
     </ClCompile>
-    <ClCompile Include="GUI\CalculatorGUI.cpp">
-      <Filter>Header Files\GUI</Filter>
-    </ClCompile>
     <ClCompile Include="bigCalculator.cpp">
       <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\CalculatorGUI.cpp">
+      <Filter>Resource Files\GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
