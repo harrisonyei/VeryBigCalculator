@@ -33,9 +33,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BigObject\library\NumberObject.h">
-      <Filter>Header Files\BigObject</Filter>
-    </ClInclude>
     <ClInclude Include="BigObject\library\BigNum.h">
       <Filter>Header Files\BigObject</Filter>
     </ClInclude>
@@ -47,6 +44,12 @@
     </ClInclude>
     <ClInclude Include="BigObject\library\Integer.h">
       <Filter>Header Files\BigObject</Filter>
+    </ClInclude>
+    <ClInclude Include="BigObject\library\NumberObject.h">
+      <Filter>Header Files\BigObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\CalculatorGUI.h">
+      <Filter>Header Files\GUI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +67,12 @@
     </ClCompile>
     <ClCompile Include="BigObject\NumberObject.cpp">
       <Filter>Resource Files\BigObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Operation\CalculatorCore.cpp">
+      <Filter>Resource Files\Operation</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\CalculatorGUI.cpp">
+      <Filter>Header Files\GUI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
