@@ -5,13 +5,16 @@
 // Last Update: Date: April 7, 2017
 // Problem statement: This C++ program separated into numerator and denominator.
 #include "library\Decimal.h"
-#include <iostream>
 #include <string>
-using namespace std;
+
 // [NEED IMPLEMENT] String to decimal.
-void StoD(std::string s) {	
-	string numerator, denominator = "1";
-	int negtiveFlag = 0, dotPos = 0;
+void Decimal::StoD(std::string s) {	
+	std::string numerator; 
+	std::string denominator = "1";
+
+	int negtiveFlag = 0;
+	int dotPos      = 0;
+
 	//if number is negtive,negtiveFlag equal to 1,delet '-' from the string
 	if (s[0] == '-') {
 		negtiveFlag = 1;
@@ -39,18 +42,18 @@ void StoD(std::string s) {
 	}
 
 	//erase 0,-001230 -> -1230
-	for (int i = 0; i < numerator.size(); i++)
-	{
-		if (numerator == "0")break;
-		if (numerator[i] != '0' && numerator[i] != '-')
-			break;
+	for (int i = 0; i < numerator.size(); i++) {
+		if (numerator == "0"){ break; }
+
+		if (numerator[i] != '0' && numerator[i] != '-'){ break; }
+			
 		if (numerator[i] == '0') {
 			numerator.erase(numerator.begin() + i);
 			i--;
 		}
 	}
-
-
+	strNume = numerator;
+	strDeno = denominator;
 
 }
 
