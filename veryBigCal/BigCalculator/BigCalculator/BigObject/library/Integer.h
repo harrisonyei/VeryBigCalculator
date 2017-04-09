@@ -4,8 +4,6 @@
 #include <vector>
 
 #include "NumberObject.h"
-#include "Decimal.h"
-#include "Complex.h"
 
 class Integer : NumberObject {
 private:
@@ -21,14 +19,14 @@ public:
 	Integer(std::string s):NumberObject(s){
 		StoInt(NumberObject::StrNums());
 	}
-	Integer(Decimal& d){
+	/*Integer(Decimal d){
 		// [NOTFINISHED] 應該要回傳 -->(nume / deno) . nums;
 		nums = (d.Nume()).Nums();
 	}
-	Integer(Complex& c){
+	Integer(Complex c){
 		// [NOTFINISHED] 應該要回傳 -->(nume / deno) . nums;
 		nums = ((c.Real()).Nume()).Nums();
-	}
+	}*/
 	// Getter
 	std::vector<int>& Nums(){ return nums; }
 

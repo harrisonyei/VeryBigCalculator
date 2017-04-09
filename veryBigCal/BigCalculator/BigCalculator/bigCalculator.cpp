@@ -2,10 +2,9 @@
 #include <iostream>
 
 #include "BigObject\library\BigNum.h"
-#include "GUI\library\CalculatorForm.h"
+#include "GUI\CalculatorGUI.h"
 
 int main(void) {
-	
 
 	return 0;
 }
