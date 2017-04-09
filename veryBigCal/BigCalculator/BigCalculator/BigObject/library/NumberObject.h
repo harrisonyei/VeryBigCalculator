@@ -2,6 +2,8 @@
 #pragma once
 #include<string>
 
+
+
 class NumberObject {
 private:
 	std::string strNums;

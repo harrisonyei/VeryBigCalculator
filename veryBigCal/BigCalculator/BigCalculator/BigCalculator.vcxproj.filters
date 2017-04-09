@@ -74,5 +74,13 @@
     <ClCompile Include="GUI\CalculatorGUI.cpp">
       <Filter>Header Files\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="bigCalculator.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GUI\CalculatorGUI.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

@@ -137,6 +137,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="bigCalculator.cpp" />
     <ClCompile Include="BigObject\BigNum.cpp" />
     <ClCompile Include="BigObject\Complex.cpp" />
     <ClCompile Include="BigObject\Decimal.cpp" />

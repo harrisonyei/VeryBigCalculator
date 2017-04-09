@@ -1,7 +1,6 @@
 // Decimal 是帶正負號的浮點數
 #pragma once
 #include "Integer.h"
-#include "Complex.h"
 
 const int DECIMAL_POINT_SIZE = 100;
 
@@ -30,10 +29,10 @@ public:
 		nume = i;
 		deno = (Integer)"1";
 	}
-	Decimal(Complex& c){
+	/*Decimal(Complex& c){
 		nume = (c.Real()).Nume();
 		deno = (c.Real()).Deno();
-	}
+	}*/
 	// Getter
 	Integer& Nume(){ return nume; }
 	Integer& Deno(){ return deno; }
