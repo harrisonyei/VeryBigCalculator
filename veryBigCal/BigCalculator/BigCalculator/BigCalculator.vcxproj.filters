@@ -51,6 +51,9 @@
     <ClInclude Include="GUI\CalculatorGUI.h">
       <Filter>Header Files\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="Operation\TestCore.h">
+      <Filter>Header Files\Operation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BigObject\BigNum.cpp">
@@ -76,6 +79,9 @@
     </ClCompile>
     <ClCompile Include="GUI\CalculatorGUI.cpp">
       <Filter>Resource Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Operation\TestCore.cpp">
+      <Filter>Resource Files\Operation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

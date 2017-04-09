@@ -1,4 +1,5 @@
 #pragma once
+#include "../Operation/TestCore.h"
 
 namespace BigCalculator {
 
@@ -127,281 +128,257 @@ namespace BigCalculator {
 			// 
 			// number1
 			// 
-			this->number1->Location = System::Drawing::Point(101, 419);
-			this->number1->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->number1->Location = System::Drawing::Point(76,363);
 			this->number1->Name = L"number1";
-			this->number1->Size = System::Drawing::Size(67, 46);
+			this->number1->Size = System::Drawing::Size(50,40);
 			this->number1->TabIndex = 0;
 			this->number1->Text = L"1";
 			this->number1->UseVisualStyleBackColor = true;
-			this->number1->Click += gcnew System::EventHandler(this, &CalculatorGUI::number1_Click);
+			this->number1->Click += gcnew System::EventHandler(this,&CalculatorGUI::number1_Click);
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(16, 10);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Location = System::Drawing::Point(12,9);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(41, 15);
+			this->label1->Size = System::Drawing::Size(35,13);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"label1";
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(16, 29);
-			this->textBox1->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->textBox1->Location = System::Drawing::Point(12,25);
 			this->textBox1->Multiline = true;
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(395, 208);
+			this->textBox1->Size = System::Drawing::Size(297,181);
 			this->textBox1->TabIndex = 2;
 			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
 			// 
 			// number2
 			// 
-			this->number2->Location = System::Drawing::Point(176, 419);
-			this->number2->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->number2->Location = System::Drawing::Point(132,363);
 			this->number2->Name = L"number2";
-			this->number2->Size = System::Drawing::Size(67, 46);
+			this->number2->Size = System::Drawing::Size(50,40);
 			this->number2->TabIndex = 3;
 			this->number2->Text = L"2";
 			this->number2->UseVisualStyleBackColor = true;
-			this->number2->Click += gcnew System::EventHandler(this, &CalculatorGUI::number2_Click);
+			this->number2->Click += gcnew System::EventHandler(this,&CalculatorGUI::number2_Click);
 			// 
 			// number3
 			// 
-			this->number3->Location = System::Drawing::Point(251, 419);
-			this->number3->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->number3->Location = System::Drawing::Point(188,363);
 			this->number3->Name = L"number3";
-			this->number3->Size = System::Drawing::Size(67, 46);
+			this->number3->Size = System::Drawing::Size(50,40);
 			this->number3->TabIndex = 4;
 			this->number3->Text = L"3";
 			this->number3->UseVisualStyleBackColor = true;
-			this->number3->Click += gcnew System::EventHandler(this, &CalculatorGUI::number3_Click);
+			this->number3->Click += gcnew System::EventHandler(this,&CalculatorGUI::number3_Click);
 			// 
 			// number4
 			// 
-			this->number4->Location = System::Drawing::Point(101, 366);
-			this->number4->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->number4->Location = System::Drawing::Point(76,317);
 			this->number4->Name = L"number4";
-			this->number4->Size = System::Drawing::Size(67, 46);
+			this->number4->Size = System::Drawing::Size(50,40);
 			this->number4->TabIndex = 5;
 			this->number4->Text = L"4";
 			this->number4->UseVisualStyleBackColor = true;
-			this->number4->Click += gcnew System::EventHandler(this, &CalculatorGUI::number4_Click);
+			this->number4->Click += gcnew System::EventHandler(this,&CalculatorGUI::number4_Click);
 			// 
 			// number5
 			// 
-			this->number5->Location = System::Drawing::Point(176, 366);
-			this->number5->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->number5->Location = System::Drawing::Point(132,317);
 			this->number5->Name = L"number5";
-			this->number5->Size = System::Drawing::Size(67, 46);
+			this->number5->Size = System::Drawing::Size(50,40);
 			this->number5->TabIndex = 6;
 			this->number5->Text = L"5";
 			this->number5->UseVisualStyleBackColor = true;
-			this->number5->Click += gcnew System::EventHandler(this, &CalculatorGUI::number5_Click);
+			this->number5->Click += gcnew System::EventHandler(this,&CalculatorGUI::number5_Click);
 			// 
 			// number6
 			// 
-			this->number6->Location = System::Drawing::Point(251, 366);
-			this->number6->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->number6->Location = System::Drawing::Point(188,317);
 			this->number6->Name = L"number6";
-			this->number6->Size = System::Drawing::Size(67, 46);
+			this->number6->Size = System::Drawing::Size(50,40);
 			this->number6->TabIndex = 7;
 			this->number6->Text = L"6";
 			this->number6->UseVisualStyleBackColor = true;
-			this->number6->Click += gcnew System::EventHandler(this, &CalculatorGUI::number6_Click);
+			this->number6->Click += gcnew System::EventHandler(this,&CalculatorGUI::number6_Click);
 			// 
 			// number7
 			// 
-			this->number7->Location = System::Drawing::Point(101, 313);
-			this->number7->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->number7->Location = System::Drawing::Point(76,271);
 			this->number7->Name = L"number7";
-			this->number7->Size = System::Drawing::Size(67, 46);
+			this->number7->Size = System::Drawing::Size(50,40);
 			this->number7->TabIndex = 8;
 			this->number7->Text = L"7";
 			this->number7->UseVisualStyleBackColor = true;
-			this->number7->Click += gcnew System::EventHandler(this, &CalculatorGUI::number7_Click);
+			this->number7->Click += gcnew System::EventHandler(this,&CalculatorGUI::number7_Click);
 			// 
 			// number8
 			// 
-			this->number8->Location = System::Drawing::Point(176, 313);
-			this->number8->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->number8->Location = System::Drawing::Point(132,271);
 			this->number8->Name = L"number8";
-			this->number8->Size = System::Drawing::Size(67, 46);
+			this->number8->Size = System::Drawing::Size(50,40);
 			this->number8->TabIndex = 9;
 			this->number8->Text = L"8";
 			this->number8->UseVisualStyleBackColor = true;
-			this->number8->Click += gcnew System::EventHandler(this, &CalculatorGUI::number8_Click);
+			this->number8->Click += gcnew System::EventHandler(this,&CalculatorGUI::number8_Click);
 			// 
 			// number9
 			// 
-			this->number9->Location = System::Drawing::Point(251, 313);
-			this->number9->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->number9->Location = System::Drawing::Point(188,271);
 			this->number9->Name = L"number9";
-			this->number9->Size = System::Drawing::Size(67, 46);
+			this->number9->Size = System::Drawing::Size(50,40);
 			this->number9->TabIndex = 10;
 			this->number9->Text = L"9";
 			this->number9->UseVisualStyleBackColor = true;
-			this->number9->Click += gcnew System::EventHandler(this, &CalculatorGUI::number9_Click);
+			this->number9->Click += gcnew System::EventHandler(this,&CalculatorGUI::number9_Click);
 			// 
 			// number0
 			// 
-			this->number0->Location = System::Drawing::Point(176, 472);
-			this->number0->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->number0->Location = System::Drawing::Point(132,409);
 			this->number0->Name = L"number0";
-			this->number0->Size = System::Drawing::Size(67, 46);
+			this->number0->Size = System::Drawing::Size(50,40);
 			this->number0->TabIndex = 11;
 			this->number0->Text = L"0";
 			this->number0->UseVisualStyleBackColor = true;
-			this->number0->Click += gcnew System::EventHandler(this, &CalculatorGUI::number0_Click);
+			this->number0->Click += gcnew System::EventHandler(this,&CalculatorGUI::number0_Click);
 			// 
 			// numberPot
 			// 
-			this->numberPot->Location = System::Drawing::Point(101, 471);
-			this->numberPot->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->numberPot->Location = System::Drawing::Point(76,408);
 			this->numberPot->Name = L"numberPot";
-			this->numberPot->Size = System::Drawing::Size(67, 46);
+			this->numberPot->Size = System::Drawing::Size(50,40);
 			this->numberPot->TabIndex = 12;
 			this->numberPot->Text = L".";
 			this->numberPot->UseVisualStyleBackColor = true;
-			this->numberPot->Click += gcnew System::EventHandler(this, &CalculatorGUI::numberPot_Click);
+			this->numberPot->Click += gcnew System::EventHandler(this,&CalculatorGUI::numberPot_Click);
 			// 
 			// operatorRBricket
 			// 
-			this->operatorRBricket->Location = System::Drawing::Point(101, 260);
-			this->operatorRBricket->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->operatorRBricket->Location = System::Drawing::Point(76,225);
 			this->operatorRBricket->Name = L"operatorRBricket";
-			this->operatorRBricket->Size = System::Drawing::Size(67, 46);
+			this->operatorRBricket->Size = System::Drawing::Size(50,40);
 			this->operatorRBricket->TabIndex = 13;
 			this->operatorRBricket->Text = L")";
 			this->operatorRBricket->UseVisualStyleBackColor = true;
-			this->operatorRBricket->Click += gcnew System::EventHandler(this, &CalculatorGUI::operatorRBricket_Click);
+			this->operatorRBricket->Click += gcnew System::EventHandler(this,&CalculatorGUI::operatorRBricket_Click);
 			// 
 			// operatorLBricket
 			// 
-			this->operatorLBricket->Location = System::Drawing::Point(20, 260);
-			this->operatorLBricket->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->operatorLBricket->Location = System::Drawing::Point(15,225);
 			this->operatorLBricket->Name = L"operatorLBricket";
-			this->operatorLBricket->Size = System::Drawing::Size(67, 46);
+			this->operatorLBricket->Size = System::Drawing::Size(50,40);
 			this->operatorLBricket->TabIndex = 14;
 			this->operatorLBricket->Text = L"(";
 			this->operatorLBricket->UseVisualStyleBackColor = true;
-			this->operatorLBricket->Click += gcnew System::EventHandler(this, &CalculatorGUI::operatorLBricket_Click);
+			this->operatorLBricket->Click += gcnew System::EventHandler(this,&CalculatorGUI::operatorLBricket_Click);
 			// 
 			// operatorResult
 			// 
-			this->operatorResult->Location = System::Drawing::Point(251, 472);
-			this->operatorResult->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->operatorResult->Location = System::Drawing::Point(188,409);
 			this->operatorResult->Name = L"operatorResult";
-			this->operatorResult->Size = System::Drawing::Size(161, 46);
+			this->operatorResult->Size = System::Drawing::Size(121,40);
 			this->operatorResult->TabIndex = 15;
 			this->operatorResult->Text = L"=";
 			this->operatorResult->UseVisualStyleBackColor = true;
+			this->operatorResult->Click += gcnew System::EventHandler(this,&CalculatorGUI::operatorResult_Click);
 			// 
 			// operatorAdd
 			// 
-			this->operatorAdd->Location = System::Drawing::Point(345, 419);
-			this->operatorAdd->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->operatorAdd->Location = System::Drawing::Point(259,363);
 			this->operatorAdd->Name = L"operatorAdd";
-			this->operatorAdd->Size = System::Drawing::Size(67, 46);
+			this->operatorAdd->Size = System::Drawing::Size(50,40);
 			this->operatorAdd->TabIndex = 16;
 			this->operatorAdd->Text = L"+";
 			this->operatorAdd->UseVisualStyleBackColor = true;
-			this->operatorAdd->Click += gcnew System::EventHandler(this, &CalculatorGUI::operatorAdd_Click);
+			this->operatorAdd->Click += gcnew System::EventHandler(this,&CalculatorGUI::operatorAdd_Click);
 			// 
 			// operatorSub
 			// 
-			this->operatorSub->Location = System::Drawing::Point(345, 366);
-			this->operatorSub->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->operatorSub->Location = System::Drawing::Point(259,317);
 			this->operatorSub->Name = L"operatorSub";
-			this->operatorSub->Size = System::Drawing::Size(67, 46);
+			this->operatorSub->Size = System::Drawing::Size(50,40);
 			this->operatorSub->TabIndex = 17;
 			this->operatorSub->Text = L"-";
 			this->operatorSub->UseVisualStyleBackColor = true;
-			this->operatorSub->Click += gcnew System::EventHandler(this, &CalculatorGUI::operatorSub_Click);
+			this->operatorSub->Click += gcnew System::EventHandler(this,&CalculatorGUI::operatorSub_Click);
 			// 
 			// operatorMult
 			// 
-			this->operatorMult->Location = System::Drawing::Point(345, 313);
-			this->operatorMult->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->operatorMult->Location = System::Drawing::Point(259,271);
 			this->operatorMult->Name = L"operatorMult";
-			this->operatorMult->Size = System::Drawing::Size(67, 46);
+			this->operatorMult->Size = System::Drawing::Size(50,40);
 			this->operatorMult->TabIndex = 18;
 			this->operatorMult->Text = L"*";
 			this->operatorMult->UseVisualStyleBackColor = true;
-			this->operatorMult->Click += gcnew System::EventHandler(this, &CalculatorGUI::operatorMult_Click);
+			this->operatorMult->Click += gcnew System::EventHandler(this,&CalculatorGUI::operatorMult_Click);
 			// 
 			// operatorDivide
 			// 
-			this->operatorDivide->Location = System::Drawing::Point(345, 260);
-			this->operatorDivide->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->operatorDivide->Location = System::Drawing::Point(259,225);
 			this->operatorDivide->Name = L"operatorDivide";
-			this->operatorDivide->Size = System::Drawing::Size(67, 46);
+			this->operatorDivide->Size = System::Drawing::Size(50,40);
 			this->operatorDivide->TabIndex = 19;
 			this->operatorDivide->Text = L"/";
 			this->operatorDivide->UseVisualStyleBackColor = true;
-			this->operatorDivide->Click += gcnew System::EventHandler(this, &CalculatorGUI::operatorDivide_Click);
+			this->operatorDivide->Click += gcnew System::EventHandler(this,&CalculatorGUI::operatorDivide_Click);
 			// 
 			// controlDelete
 			// 
-			this->controlDelete->Location = System::Drawing::Point(251, 260);
-			this->controlDelete->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->controlDelete->Location = System::Drawing::Point(188,225);
 			this->controlDelete->Name = L"controlDelete";
-			this->controlDelete->Size = System::Drawing::Size(67, 46);
+			this->controlDelete->Size = System::Drawing::Size(50,40);
 			this->controlDelete->TabIndex = 20;
 			this->controlDelete->Text = L"DEL";
 			this->controlDelete->UseVisualStyleBackColor = true;
-			this->controlDelete->Click += gcnew System::EventHandler(this, &CalculatorGUI::controlDelete_Click);
+			this->controlDelete->Click += gcnew System::EventHandler(this,&CalculatorGUI::controlDelete_Click);
 			// 
 			// controlClear
 			// 
-			this->controlClear->Location = System::Drawing::Point(176, 260);
-			this->controlClear->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->controlClear->Location = System::Drawing::Point(132,225);
 			this->controlClear->Name = L"controlClear";
-			this->controlClear->Size = System::Drawing::Size(67, 46);
+			this->controlClear->Size = System::Drawing::Size(50,40);
 			this->controlClear->TabIndex = 21;
 			this->controlClear->Text = L"CLR";
 			this->controlClear->UseVisualStyleBackColor = true;
-			this->controlClear->Click += gcnew System::EventHandler(this, &CalculatorGUI::controlClear_Click);
+			this->controlClear->Click += gcnew System::EventHandler(this,&CalculatorGUI::controlClear_Click);
 			// 
 			// operatorPow
 			// 
-			this->operatorPow->Location = System::Drawing::Point(20, 366);
-			this->operatorPow->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->operatorPow->Location = System::Drawing::Point(15,317);
 			this->operatorPow->Name = L"operatorPow";
-			this->operatorPow->Size = System::Drawing::Size(67, 46);
+			this->operatorPow->Size = System::Drawing::Size(50,40);
 			this->operatorPow->TabIndex = 22;
 			this->operatorPow->Text = L"^";
 			this->operatorPow->UseVisualStyleBackColor = true;
-			this->operatorPow->Click += gcnew System::EventHandler(this, &CalculatorGUI::operatorPow_Click);
+			this->operatorPow->Click += gcnew System::EventHandler(this,&CalculatorGUI::operatorPow_Click);
 			// 
 			// operatorImag
 			// 
-			this->operatorImag->Location = System::Drawing::Point(20, 313);
-			this->operatorImag->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->operatorImag->Location = System::Drawing::Point(15,271);
 			this->operatorImag->Name = L"operatorImag";
-			this->operatorImag->Size = System::Drawing::Size(67, 46);
+			this->operatorImag->Size = System::Drawing::Size(50,40);
 			this->operatorImag->TabIndex = 23;
 			this->operatorImag->Text = L"i";
 			this->operatorImag->UseVisualStyleBackColor = true;
-			this->operatorImag->Click += gcnew System::EventHandler(this, &CalculatorGUI::operatorImag_Click);
+			this->operatorImag->Click += gcnew System::EventHandler(this,&CalculatorGUI::operatorImag_Click);
 			// 
 			// operatorFactorial
 			// 
-			this->operatorFactorial->Location = System::Drawing::Point(20, 419);
-			this->operatorFactorial->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->operatorFactorial->Location = System::Drawing::Point(15,363);
 			this->operatorFactorial->Name = L"operatorFactorial";
-			this->operatorFactorial->Size = System::Drawing::Size(67, 46);
+			this->operatorFactorial->Size = System::Drawing::Size(50,40);
 			this->operatorFactorial->TabIndex = 24;
 			this->operatorFactorial->Text = L"!";
 			this->operatorFactorial->UseVisualStyleBackColor = true;
-			this->operatorFactorial->Click += gcnew System::EventHandler(this, &CalculatorGUI::operatorFactorial_Click);
+			this->operatorFactorial->Click += gcnew System::EventHandler(this,&CalculatorGUI::operatorFactorial_Click);
 			// 
 			// CalculatorGUI
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 15);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6,13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(428, 549);
+			this->ClientSize = System::Drawing::Size(321,476);
 			this->Controls->Add(this->operatorFactorial);
 			this->Controls->Add(this->operatorImag);
 			this->Controls->Add(this->operatorPow);
@@ -427,10 +404,9 @@ namespace BigCalculator {
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->number1);
-			this->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
 			this->Name = L"CalculatorGUI";
 			this->Text = L"BigCalculator";
-			this->Load += gcnew System::EventHandler(this, &CalculatorGUI::CalculatorGUI_Load);
+			this->Load += gcnew System::EventHandler(this,&CalculatorGUI::CalculatorGUI_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -509,6 +485,10 @@ private: System::Void controlDelete_Click(System::Object^  sender, System::Event
 private: System::Void controlClear_Click(System::Object^  sender, System::EventArgs^  e) {
 	this->textBox1->Text = "";
 
+}
+private: System::Void operatorResult_Click(System::Object^  sender,System::EventArgs^  e){
+	const char* chars = (const char*)(System::Runtime::InteropServices::Marshal::StringToHGlobalAnsi(this->textBox1->Text)).ToPointer();
+	this->textBox1->Text = Convert::ToString(TestCore::CalQ(chars));
 }
 };
 }
