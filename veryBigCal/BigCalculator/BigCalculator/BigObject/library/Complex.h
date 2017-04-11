@@ -15,24 +15,10 @@ private:
 
 public:
 	// Constructors.
-	Complex():NumberObject(){
-		StoC(NumberObject::StrNums());
-		real = Integer(strReal);
-		imag = Integer(strImag);
-	}
-	Complex(std::string s):NumberObject(s){
-		StoC(NumberObject::StrNums());
-		real = Integer(strReal);
-		imag = Integer(strImag);
-	}
-	Complex(Integer& i) {
-		real = (Decimal)i;
-		imag = (Decimal)"0";
-	}
-	Complex(Decimal& d){
-		real = d;
-		imag = (Decimal)"0";
-	}
+	Complex();
+	Complex(std::string s);
+	Complex(Integer& i);
+	Complex(Decimal& d);
 	// Getter
 	Decimal& Real(){ return real; }
 	Decimal& Imag(){ return imag; }

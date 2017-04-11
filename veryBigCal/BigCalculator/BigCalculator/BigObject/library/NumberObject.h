@@ -2,6 +2,9 @@
 #pragma once
 #include<string>
 
+class Integer;
+class Decimal;
+class Complex;
 
 
 class NumberObject {

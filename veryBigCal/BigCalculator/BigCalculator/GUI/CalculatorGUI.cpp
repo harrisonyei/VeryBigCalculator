@@ -1,4 +1,4 @@
-#include "CalculatorGUI.h"
+/*#include "CalculatorGUI.h"
 
 int main(array<System::String^> ^args) {
 	BigCalculator::Application::EnableVisualStyles();
@@ -6,4 +6,4 @@ int main(array<System::String^> ^args) {
 	BigCalculator::Application::Run(gcnew BigCalculator::CalculatorGUI());
 	return 0;
 }
-
+*/
