@@ -15,24 +15,10 @@ private:
 
 public:
 	// Constructors.
-	Decimal():NumberObject(){
-		StoD(NumberObject::StrNums());
-		nume = Integer(strNume);
-		deno = Integer(strDeno);
-	}
-	Decimal(std::string s):NumberObject(s){
-		StoD(NumberObject::StrNums());
-		nume = Integer(strNume);
-		deno = Integer(strDeno);
-	}
-	Decimal(Integer& i){
-		nume = i;
-		deno = (Integer)"1";
-	}
-	/*Decimal(Complex& c){
-		nume = (c.Real()).Nume();
-		deno = (c.Real()).Deno();
-	}*/
+	Decimal();
+	Decimal(std::string s);
+	Decimal(Integer& i);
+	Decimal(Complex& c);
 	// Getter
 	Integer& Nume(){ return nume; }
 	Integer& Deno(){ return deno; }

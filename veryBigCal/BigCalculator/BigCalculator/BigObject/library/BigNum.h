@@ -9,13 +9,23 @@ enum NumberType{
 	NUM
 };
 
+union NumberUnion{
+	NumberObject numObj;
+	Integer numInt;
+	Decimal numDec;
+	Complex numCmp;
+};
+
 class BigNum {  
 private:
-	NumberObject num;
+	NumberUnion num;
 	std::string name;
 	NumberType type;
 	
 public:
-
-
+	BigNum();
+	
+	void SetType(NumberType t){
+		type = t;
+	}
 };
