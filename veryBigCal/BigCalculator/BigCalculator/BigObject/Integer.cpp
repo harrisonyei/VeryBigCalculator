@@ -4,16 +4,18 @@
 #include "../Operation/TestCore.h"
 #include "library\Integer.h"
 
-#define N 2500
+
+#define N 10
 #define MAXDIG 8
 
-Integer add(std::vector<unsigned int>&,std::vector<unsigned int>&);
-Integer subtract(std::vector<unsigned int>&,std::vector<unsigned int>&);
-Integer multiply(std::vector<unsigned int>&,std::vector<unsigned int>&);
-Integer divide(std::vector<unsigned int>&,std::vector<unsigned int>&);
-void toComp(std::vector<unsigned int>&);  // Âà¸É¼Æ
-std::vector<unsigned int> absv(std::vector<unsigned int>&);    // Âàµ´¹ï­È
-void print(std::vector<unsigned int>&);   // Åã¥Ü¤j¾ã¼Æ
+void add(std::vector<unsigned int>&,std::vector<unsigned int>&,std::vector<unsigned int>&);
+void subtract(std::vector<unsigned int>&,std::vector<unsigned int>&,std::vector<unsigned int>&);
+void multiply(std::vector<unsigned int>&,std::vector<unsigned int>&,std::vector<unsigned int>&);
+void divide(std::vector<unsigned int>&,std::vector<unsigned int>&,std::vector<unsigned int>&);
+void toComp(std::vector<unsigned int>&);  // è½‰è£œæ•¸
+std::vector<unsigned int> absv(std::vector<unsigned int>&);    // è½‰çµ•å°å€¼
+void print(std::vector<unsigned int>&);   // é¡¯ç¤ºå¤§æ•´æ•¸
+
 
 
 Integer operator +(Integer& a,Integer& b){
@@ -66,6 +68,7 @@ void Integer::StoInt(std::string s){
 	nums = Nums;
 }
 
+
 Integer add(std::vector<unsigned int>& a,std::vector<unsigned int>& b){
 	Integer c = "0";
 	if(b[0] == 99999999){
@@ -78,7 +81,7 @@ Integer add(std::vector<unsigned int>& a,std::vector<unsigned int>& b){
 			c.Nums()[i] = a[i] + b[i] + carry;
 			if(c.Nums()[i] < 100000000){
 				carry = 0;
-			} else{ // ¶i¦ì 
+			} else{ // é€²ä½ 
 				c.Nums()[i] = c.Nums()[i] - 100000000;
 				carry = 1;
 			}
@@ -99,7 +102,7 @@ Integer subtract(std::vector<unsigned int>& a,std::vector<unsigned int>& b){
 			c.Nums()[i] = a[i] - b[i] - borrow;
 			if(c.Nums()[i] >= 0){
 				borrow = 0;
-			} else{ // ­É¦ì 
+			} else{ // å€Ÿä½ 
 				c.Nums()[i] = c.Nums()[i] + 100000000;
 				borrow = 1;
 			}
@@ -108,7 +111,7 @@ Integer subtract(std::vector<unsigned int>& a,std::vector<unsigned int>& b){
 	return c;
 }
 
-Integer multiply(std::vector<unsigned int>& a,std::vector<unsigned int>& b){ // b ¬°­¼¼Æ
+Integer multiply(std::vector<unsigned int>& a,std::vector<unsigned int>& b){ // b ç‚ºä¹˜æ•¸
 	std::vector<unsigned int> tempA = absv(a);
 	std::vector<unsigned int> tempB = absv(b);
 	/*Call ADD()*/
@@ -119,7 +122,7 @@ Integer multiply(std::vector<unsigned int>& a,std::vector<unsigned int>& b){ // 
 	return (Integer)"0";
 }
 
-Integer divide(std::vector<unsigned int>& a,std::vector<unsigned int>& b){  // b ¬°°£¼Æ 
+Integer divide(std::vector<unsigned int>& a,std::vector<unsigned int>& b){  // b ç‚ºé™¤æ•¸ 
 	std::vector<unsigned int> tempA = absv(a);
 	std::vector<unsigned int> tempB = absv(b);
 
