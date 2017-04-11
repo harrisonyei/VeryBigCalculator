@@ -4,6 +4,7 @@
 #include "../Operation/TestCore.h"
 #include "library\Integer.h"
 
+
 #define N 10
 #define MAXDIG 8
 
@@ -11,10 +12,30 @@ void add(std::vector<unsigned int>&,std::vector<unsigned int>&,std::vector<unsig
 void subtract(std::vector<unsigned int>&,std::vector<unsigned int>&,std::vector<unsigned int>&);
 void multiply(std::vector<unsigned int>&,std::vector<unsigned int>&,std::vector<unsigned int>&);
 void divide(std::vector<unsigned int>&,std::vector<unsigned int>&,std::vector<unsigned int>&);
-void toComp(std::vector<unsigned int>&);  // ¬‡∏…º∆
-std::vector<unsigned int> absv(std::vector<unsigned int>&);    // ¬‡µ¥πÔ≠»
-void print(std::vector<unsigned int>&);   // ≈„•‹§jæ„º∆
+void toComp(std::vector<unsigned int>&);  // ËΩâË£úÊï∏
+std::vector<unsigned int> absv(std::vector<unsigned int>&);    // ËΩâÁµïÂ∞çÂÄº
+void print(std::vector<unsigned int>&);   // È°ØÁ§∫Â§ßÊï¥Êï∏
 
+
+
+Integer operator +(Integer& a,Integer& b){
+	return add(a.nums,b.nums);
+}
+Integer operator -(Integer& a,Integer& b){
+	return subtract(a.nums,b.nums);
+}
+Integer operator *(Integer& a,Integer& b){
+	return a;
+}
+Integer operator /(Integer& a,Integer& b){
+	return a;
+}
+Integer operator ^(Integer& a,Integer& b){
+	return a;
+}
+Integer operator !(Integer& a){
+	return a;
+}
 
 void Integer::StoInt(std::string s){
 	std::vector<unsigned int> Nums(N,0);
@@ -34,8 +55,8 @@ void Integer::StoInt(std::string s){
 	num.clear();
 	for(int i = s.length() - 1; i >= 0; i--){
 		num.push_back(s[i]);
-		if((s.length() - i) % MAXDIG == 0 || i== 0 ){
-			index = N - 1 - (s.length()-1-i) / MAXDIG;
+		if((s.length() - i) % MAXDIG == 0 || i == 0){
+			index = N - 1 - (s.length() - 1 - i) / MAXDIG;
 			std::reverse(num.begin(),num.end());
 			Nums[index] = atoi(num.c_str());
 			num.clear();
@@ -47,61 +68,70 @@ void Integer::StoInt(std::string s){
 	nums = Nums;
 }
 
-void add(std::vector<unsigned int>& a,std::vector<unsigned int>& b,std::vector<unsigned int>& c){
+
+Integer add(std::vector<unsigned int>& a,std::vector<unsigned int>& b){
+	Integer c = "0";
 	if(b[0] == 99999999){
 		toComp(b);
-		subtract(a,b,c);
+		subtract(a,b);
+		toComp(b);
 	} else{
 		int i,carry = 0;
 		for(i = N - 1; i >= 0; i--){
-			c[i] = a[i] + b[i] + carry;
-			if(c[i] < 100000000){
+			c.Nums()[i] = a[i] + b[i] + carry;
+			if(c.Nums()[i] < 100000000){
 				carry = 0;
-			} else{ // ∂i¶Ï 
-				c[i] = c[i] - 100000000;
+			} else{ // ÈÄ≤‰Ωç 
+				c.Nums()[i] = c.Nums()[i] - 100000000;
 				carry = 1;
 			}
 		}
 	}
+	return c;
 }
 
-void subtract(std::vector<unsigned int>& a,std::vector<unsigned int>& b,std::vector<unsigned int>& c){
+Integer subtract(std::vector<unsigned int>& a,std::vector<unsigned int>& b){
+	Integer c = "0";
 	if(b[0] == 99999999){
 		toComp(b);
-		add(a,b,c);
+		add(a,b);
+		toComp(b);
 	} else{
 		int i,borrow = 0;
 		for(i = N - 1; i >= 0; i--){
-			c[i] = a[i] - b[i] - borrow;
-			if(c[i] >= 0){
+			c.Nums()[i] = a[i] - b[i] - borrow;
+			if(c.Nums()[i] >= 0){
 				borrow = 0;
-			} else{ // ≠…¶Ï 
-				c[i] = c[i] + 100000000;
+			} else{ // ÂÄü‰Ωç 
+				c.Nums()[i] = c.Nums()[i] + 100000000;
 				borrow = 1;
 			}
 		}
 	}
+	return c;
 }
 
-void multiply(std::vector<unsigned int>& a,std::vector<unsigned int>& b,std::vector<unsigned int>& c){ // b ¨∞≠ºº∆
+Integer multiply(std::vector<unsigned int>& a,std::vector<unsigned int>& b){ // b ÁÇ∫‰πòÊï∏
 	std::vector<unsigned int> tempA = absv(a);
 	std::vector<unsigned int> tempB = absv(b);
 	/*Call ADD()*/
 
 	if((a[0] == 99999999 && b[0] == 0) || (a[0] == 0 && b[0] == 99999999)){
-		toComp(c);
+		//toComp();
 	}
+	return (Integer)"0";
 }
 
-void divide(std::vector<unsigned int>& a,std::vector<unsigned int>& b,std::vector<unsigned int>& c){  // b ¨∞∞£º∆ 
+Integer divide(std::vector<unsigned int>& a,std::vector<unsigned int>& b){  // b ÁÇ∫Èô§Êï∏ 
 	std::vector<unsigned int> tempA = absv(a);
 	std::vector<unsigned int> tempB = absv(b);
 
 	/*Call SUB*/
 
 	if((a[0] == 99999999 && b[0] == 0) || (a[0] == 0 && b[0] == 99999999)){
-		toComp(c);
+		//toComp();
 	}
+	return (Integer)"0";
 }
 
 void toComp(std::vector<unsigned int>& src){

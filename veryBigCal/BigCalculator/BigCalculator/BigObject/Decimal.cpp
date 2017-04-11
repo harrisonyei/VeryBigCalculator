@@ -57,3 +57,30 @@ void Decimal::StoD(std::string s) {
 
 }
 
+Decimal operator +(Decimal& a,Decimal& b){
+	Decimal c;
+	//[請先通分]
+	c.nume = a.nume + b.nume;
+	c.deno = a.deno;
+	return c;
+}
+Decimal operator -(Decimal& a,Decimal& b){
+	Decimal c;
+	//[請先通分]
+	c.nume = a.nume - b.nume;
+	c.deno = a.deno;
+	return c;
+}
+Decimal operator *(Decimal& a,Decimal& b){
+	Decimal c;
+	c.nume = a.nume * b.nume;
+	c.deno = a.deno * b.deno;
+	return c;
+}
+Decimal operator /(Decimal& a,Decimal& b){
+	Decimal c;
+	c.nume = a.nume * b.deno;
+	c.deno = a.deno * b.nume;
+	return c;
+}
+

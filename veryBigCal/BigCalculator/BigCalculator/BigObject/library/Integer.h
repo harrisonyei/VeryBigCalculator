@@ -1,4 +1,4 @@
-// Integer ±a¥¿­t¸¹ªº¾ã¼Æ
+// Integer Â±aÂ¥Â¿Â­tÂ¸Â¹ÂªÂºÂ¾Ã£Â¼Ã†
 
 #pragma once
 #include <vector>
@@ -22,4 +22,11 @@ public:
 	// Getter
 	std::vector<unsigned int>& Nums(){ return nums; }
 
+	friend Integer operator +(Integer& a,Integer& b);
+	friend Integer operator -(Integer& a,Integer& b);
+	friend Integer operator *(Integer& a,Integer& b);
+	friend Integer operator /(Integer& a,Integer& b);
+	friend Integer operator ^(Integer& a,Integer& b);
+	friend Integer operator !(Integer& a);
+  
 };
