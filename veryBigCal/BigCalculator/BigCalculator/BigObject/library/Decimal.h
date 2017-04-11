@@ -6,8 +6,8 @@ const int DECIMAL_POINT_SIZE = 100;
 
 class Decimal:NumberObject{
 private:
-	Integer nume; //分母
-	Integer deno; //分子
+	Integer nume; //分子
+	Integer deno; //分母
 	std::string strNume;
 	std::string strDeno;
 	// [NEED IMPLEMENT] String to decimal.
@@ -22,5 +22,10 @@ public:
 	// Getter
 	Integer& Nume(){ return nume; }
 	Integer& Deno(){ return deno; }
+
+	friend Decimal operator +(Decimal& a,Decimal& b);
+	friend Decimal operator -(Decimal& a,Decimal& b);
+	friend Decimal operator *(Decimal& a,Decimal& b);
+	friend Decimal operator /(Decimal& a,Decimal& b);
 
 };

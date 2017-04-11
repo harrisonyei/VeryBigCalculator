@@ -23,4 +23,9 @@ public:
 	Decimal& Real(){ return real; }
 	Decimal& Imag(){ return imag; }
 
+	friend Complex operator +(Complex& a,Complex& b);
+	friend Complex operator -(Complex& a,Complex& b);
+	friend Complex operator *(Complex& a,Complex& b);
+	friend Complex operator /(Complex& a,Complex& b);
+
 };

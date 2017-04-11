@@ -22,4 +22,11 @@ public:
 	// Getter
 	std::vector<unsigned int>& Nums(){ return nums; }
 
+	friend Integer operator +(Integer& a,Integer& b);
+	friend Integer operator -(Integer& a,Integer& b);
+	friend Integer operator *(Integer& a,Integer& b);
+	friend Integer operator /(Integer& a,Integer& b);
+	friend Integer operator ^(Integer& a,Integer& b);
+	friend Integer operator !(Integer& a);
+
 };

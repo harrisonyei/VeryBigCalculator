@@ -1,8 +1,4 @@
 
-// Name: ¶À¯EºÕ 
-// Student ID: B10515007
-// Date: April 10, 2017 
-// Last Update: Date: April 10, 2017
 // Problem statement: This C++ program separate complex into real part and imaginary part.
 
 #include <string>
@@ -50,4 +46,28 @@ void Complex::StoC(std::string s) {
 
 	strReal = realprt;
 	strImag = imaginaryprt;
+}
+
+
+Complex operator +(Complex& a,Complex& b){
+	Complex c;
+	c.real = a.real + b.real;
+	c.imag = a.imag + b.imag;
+	return c;
+}
+Complex operator -(Complex& a,Complex& b){
+	Complex c;
+	c.real = a.real - b.real;
+	c.imag = a.imag - b.imag;
+	return c;
+}
+Complex operator *(Complex& a,Complex& b){
+	Complex c;
+	c.real = (a.real * b.real) - (a.imag * b.imag);
+	c.imag = (a.real * b.imag) + (a.imag * b.real);
+	return c;
+}
+Complex operator /(Complex& a,Complex& b){
+	// [NOT FINISHED]
+	return a;
 }
