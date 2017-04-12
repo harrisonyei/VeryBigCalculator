@@ -5,11 +5,6 @@
 #include "GUI\CalculatorGUI.h"
 
 int main(void) {
-	Integer a = "-1";
-	
-	Integer b = "9";
-	Integer c;
-	c = a - b;
-	c = (Integer)"10";
+	/*Test*/
 	return 0;
 }
