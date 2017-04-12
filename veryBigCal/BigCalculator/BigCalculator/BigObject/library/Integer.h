@@ -1,4 +1,4 @@
-// Integer 帶正負號的整數
+// Integer 簣a瞼聶簫t繡繒穠繙職瓊翹��
 
 #pragma once
 #include <vector>
@@ -38,5 +38,4 @@ public:
 
 	friend std::ostream& operator <<(std::ostream& out,Integer& b);
 	friend std::istream& operator >>(std::istream& a,Integer& b);
-
 };
