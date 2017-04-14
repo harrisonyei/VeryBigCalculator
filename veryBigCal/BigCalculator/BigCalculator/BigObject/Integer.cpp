@@ -15,10 +15,12 @@ std::vector<unsigned long long> absv(std::vector<unsigned long long>&);
 
 Integer operator +=(Integer& a,Integer& b){
 	a = a + b;
+	a.ItoS(a.nums);
 	return a;
 }
 Integer operator -=(Integer& a,Integer& b){
 	a = a - b;
+	a.ItoS(a.nums);
 	return a;
 }
 Integer operator +(Integer& a,Integer& b){
@@ -39,6 +41,7 @@ Integer operator +(Integer& a,Integer& b){
 			}
 		}
 	}
+	c.ItoS(c.nums);
 	return c;
 }
 Integer operator -(Integer& a,Integer& b){
@@ -59,6 +62,7 @@ Integer operator -(Integer& a,Integer& b){
 			}
 		}
 	}
+	c.ItoS(c.nums);
 	return c;
 }
 Integer operator *(Integer& a,Integer& b){
@@ -239,16 +243,21 @@ void Integer::StoInt(std::string s){
 }
 void Integer::ItoS(std::vector<unsigned long long>& Nums){
 	std::vector<unsigned long long> temp = absv(Nums);
+	std::string tempStr;
+	bool firstNonZero = false;
 	NumberObject::StrNums().clear();
 	for(unsigned long long& i : temp){
-		NumberObject::StrNums() += std::to_string(i);
+		if(!firstNonZero&&i > 0){ firstNonZero = true; }
+		else if(!firstNonZero){ continue; }
+		tempStr = std::to_string(i + (unsigned long long)100000000);
+		tempStr.erase(tempStr.begin());
+		NumberObject::StrNums() += tempStr;
 	}
+	if(NumberObject::StrNums().length()==0){ NumberObject::StrNums() = "0"; };
 	while(NumberObject::StrNums()[0] == '0'&&NumberObject::StrNums().length()>1){
 		NumberObject::StrNums().erase(NumberObject::StrNums().begin());
 	};
-	if(Nums[0] == 99999999){
-		NumberObject::StrNums() = "-" + NumberObject::StrNums();
-	}
+	if(Nums[0] == 99999999){ NumberObject::StrNums() = "-" + NumberObject::StrNums(); }
 }
 
 void toComp(std::vector<unsigned long long>& Nums){
