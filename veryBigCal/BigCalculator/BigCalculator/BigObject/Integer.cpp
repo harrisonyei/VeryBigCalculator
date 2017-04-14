@@ -35,7 +35,7 @@ Integer operator +(Integer& a,Integer& b){
 			c.nums[i] = a.nums[i] + b.nums[i] + carry;
 			if(c.nums[i] < 100000000){
 				carry = 0;
-			} else{ // ¶i¦ì 
+			} else{ // ï¿½iï¿½ï¿½ 
 				c.nums[i] = c.nums[i] - 100000000;
 				carry = 1;
 			}
@@ -56,7 +56,7 @@ Integer operator -(Integer& a,Integer& b){
 			c.nums[i] = a.nums[i] - b.nums[i] - borrow;
 			if(c.nums[i] >= 0){
 				borrow = 0;
-			} else{ // ­É¦ì 
+			} else{ // ï¿½É¦ï¿½ 
 				c.nums[i] = c.nums[i] + 100000000;
 				borrow = 1;
 			}
@@ -274,7 +274,7 @@ void CarryOn(std::vector<unsigned long long>& Nums){
 		temp[i] += carry;
 		if(temp[i] < 100000000){
 			carry = 0;
-		} else{ // ¶i¦ì 
+		} else{ // ï¿½iï¿½ï¿½ 
 			carry   = temp[i] / 100000000;
 			temp[i] = temp[i] % 100000000;
 		}
