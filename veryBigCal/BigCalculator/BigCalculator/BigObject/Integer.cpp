@@ -7,10 +7,20 @@
 #define N 300
 #define MAXDIG 8
 
-void toComp(std::vector<unsigned int>&);
-std::vector<unsigned int> absv(std::vector<unsigned int>&);
+void toComp(std::vector<unsigned long long>&);
+std::vector<unsigned long long> Mult(std::vector<unsigned long long>&,int);
+void CarryOn(std::vector<unsigned long long>&);
+std::vector<unsigned long long> absv(std::vector<unsigned long long>&);
 
 
+Integer operator +=(Integer& a,Integer& b){
+	a = a + b;
+	return a;
+}
+Integer operator -=(Integer& a,Integer& b){
+	a = a - b;
+	return a;
+}
 Integer operator +(Integer& a,Integer& b){
 	Integer c = "0";
 	int i,carry = 0;
@@ -52,20 +62,35 @@ Integer operator -(Integer& a,Integer& b){
 	return c;
 }
 Integer operator *(Integer& a,Integer& b){
-	std::vector<unsigned int> tempA = absv(a.nums);
-	std::vector<unsigned int> tempB = absv(b.nums);
+	int i;
+	std::vector<unsigned long long> tempA = absv(a.nums);
+	std::vector<unsigned long long> tempB = absv(b.nums);
+	std::string bAbsStr = b.StrAbs();
+	Integer temp;
+	Integer Result;
+	
 	/*Call ADD()*/
+	for(i = 1;i <= (bAbsStr.length() / MAXDIG +1);i++){
+		temp.ItoS(Mult(tempA,tempB[N-i]));
+		for(int j = 0;j < (i-1)*N ;j++){
+			temp.NumberObject::StrNums() += "0";
+		}
+		temp.StoInt(temp.NumberObject::StrNums());
+		Result += temp;
+	}
 
 	if((a.nums[0] == 99999999 && b.nums[0] == 0) || (a.nums[0] == 0 && b.nums[0] == 99999999)){
-		//toComp();
+		toComp(Result.nums);
 	}
-	return (Integer)"0";
+	Result.ItoS(Result.nums);
+	return Result;
 }
 Integer operator /(Integer& a,Integer& b){
-	std::vector<unsigned int> tempA = absv(a.nums);
-	std::vector<unsigned int> tempB = absv(b.nums);
+	std::vector<unsigned long long> tempA = absv(a.nums);
+	std::vector<unsigned long long> tempB = absv(b.nums);
+	Integer Result();
 
-	/*Call SUB*/
+	/*Call Division*/
 
 	if((a.nums[0] == 99999999 && b.nums[0] == 0) || (a.nums[0] == 0 && b.nums[0] == 99999999)){
 		//toComp();
@@ -133,10 +158,46 @@ bool operator <(Integer& a,Integer& b){
 	return false;
 }
 bool operator >=(Integer& a,Integer& b){
-	return true;
+	int i;
+	if(a.nums[0] == 99999999 && b.nums[0] == 0){
+		return false;
+	} else if(a.nums[0] == 0 && b.nums[0] == 99999999){
+		return true;
+	} else if(a.nums[0] == 0 && b.nums[0] == 0){
+		if(a.NumberObject::StrNums().length() == b.NumberObject::StrNums().length()){
+			return (a.NumberObject::StrNums().compare(b.NumberObject::StrNums()) >= 0);
+		} else{
+			return (a.NumberObject::StrNums().length()>b.NumberObject::StrNums().length());
+		}
+	} else{
+		if(a.NumberObject::StrNums().length() == b.NumberObject::StrNums().length()){
+			return (a.NumberObject::StrNums().compare(b.NumberObject::StrNums()) <= 0);
+		} else{
+			return (a.NumberObject::StrNums().length()<b.NumberObject::StrNums().length());
+		}
+	}
+
+	return false;
 }
 bool operator <=(Integer& a,Integer& b){
-	return true;
+	int i;
+	if(a.nums[0] == 99999999 && b.nums[0] == 0){
+		return true;
+	} else if(a.nums[0] == 0 && b.nums[0] == 99999999){
+		return false;
+	} else if(a.nums[0] == 0 && b.nums[0] == 0){
+		if(a.NumberObject::StrNums().length() == b.NumberObject::StrNums().length()){
+			return (b.NumberObject::StrNums().compare(a.NumberObject::StrNums())>=0);
+		} else{
+			return (a.NumberObject::StrNums().length()<b.NumberObject::StrNums().length());
+		}
+	} else{
+		if(a.NumberObject::StrNums().length() == b.NumberObject::StrNums().length()){
+			return (b.NumberObject::StrNums().compare(a.NumberObject::StrNums())<=0);
+		} else{
+			return (a.NumberObject::StrNums().length()>b.NumberObject::StrNums().length());
+		}
+	}
 }
 
 std::ostream& operator <<(std::ostream& out,Integer& b){
@@ -147,7 +208,7 @@ std::istream& operator >> (std::istream& in,Integer& b){
 }
 
 void Integer::StoInt(std::string s){
-	std::vector<unsigned int> Nums(N,0);
+	std::vector<unsigned long long> Nums(N,0);
 
 	bool isPos;
 	int index;
@@ -176,28 +237,53 @@ void Integer::StoInt(std::string s){
 	}
 	nums = Nums;
 }
-
-void Integer::ItoS(std::vector<unsigned int>& Nums){
-	std::vector<unsigned int> temp = absv(Nums);
+void Integer::ItoS(std::vector<unsigned long long>& Nums){
+	std::vector<unsigned long long> temp = absv(Nums);
 	NumberObject::StrNums().clear();
-	if(Nums[0] == 99999999){
-		NumberObject::StrNums().push_back('-');
+	for(unsigned long long& i : temp){
+		NumberObject::StrNums() += std::to_string(i);
 	}
-	for(unsigned int& i : temp){
-		NumberObject::StrNums() += std::to_string((double)i);
+	while(NumberObject::StrNums()[0] == '0'&&NumberObject::StrNums().length()>1){
+		NumberObject::StrNums().erase(NumberObject::StrNums().begin());
+	};
+	if(Nums[0] == 99999999){
+		NumberObject::StrNums() = "-" + NumberObject::StrNums();
 	}
 
 }
 
-void toComp(std::vector<unsigned int>& Nums){
-	for(unsigned int& i : Nums){
-		i = (unsigned int)99999999 - i;
+void toComp(std::vector<unsigned long long>& Nums){
+	for(unsigned long long& i : Nums){
+		i = (unsigned long long)99999999 - i;
 	}
 	Nums[N - 1] += 1;
 }
+void CarryOn(std::vector<unsigned long long>& Nums){
+	// Nums most be positive BigNum;
+	std::vector<unsigned long long> temp = Nums;
+	int i,carry = 0;
+	for(i = N - 1; i >= 0; i--){
+		temp[i] += carry;
+		if(temp[i] < 100000000){
+			carry = 0;
+		} else{ // �i�� 
+			carry   = temp[i] / 100000000;
+			temp[i] = temp[i] % 100000000;
+		}
+	}
+	Nums = temp;
+}
+std::vector<unsigned long long> Mult(std::vector<unsigned long long>& Nums,int mult){
+	std::vector<unsigned long long> temp = Nums;
+	for(unsigned long long& i : temp){
+		i *= mult;
+	}
+	CarryOn(temp);
+	return temp;
+}
 
-std::vector<unsigned int> absv(std::vector<unsigned int>& Nums){
-	std::vector<unsigned int> temp = Nums;
+std::vector<unsigned long long> absv(std::vector<unsigned long long>& Nums){
+	std::vector<unsigned long long> temp = Nums;
 	if(temp[0] == 99999999){
 		toComp(temp);
 	}
