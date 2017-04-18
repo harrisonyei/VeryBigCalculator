@@ -135,6 +135,7 @@
     <ClInclude Include="GUI\CalculatorGUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Operation\ErrorDetector.h" />
     <ClInclude Include="Operation\TestCore.h" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +147,7 @@
     <ClCompile Include="BigObject\NumberObject.cpp" />
     <ClCompile Include="GUI\CalculatorGUI.cpp" />
     <ClCompile Include="Operation\CalculatorCore.cpp" />
+    <ClCompile Include="Operation\ErrorDetector.cpp" />
     <ClCompile Include="Operation\TestCore.cpp" />
   </ItemGroup>
   <ItemGroup>

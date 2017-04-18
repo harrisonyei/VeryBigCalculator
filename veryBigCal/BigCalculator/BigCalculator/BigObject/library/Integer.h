@@ -6,12 +6,12 @@
 #include "NumberObject.h"
 
 
-class Integer : NumberObject {
+class Integer : public NumberObject {
 private:
-	std::vector<unsigned long long> nums;
+	std::vector<long long> nums;
 	// [NEED IMPLEMENT] String to integer.
 	void StoInt(std::string s);
-	void ItoS(std::vector<unsigned long long>&);
+	void ItoS(std::vector<long long>&);
 
 
 public:
@@ -21,7 +21,7 @@ public:
 	Integer(Decimal d);
 	Integer(Complex c);
 	// Getter
-	std::vector<unsigned long long>& Nums(){ return nums; }
+	std::vector<long long>& Nums(){ return nums; }
 	std::string StrAbs(){
 		if(NumberObject::StrNums()[0] == '-'){
 			return NumberObject::StrNums().substr(1);
@@ -48,3 +48,4 @@ public:
 	friend std::ostream& operator <<(std::ostream& out,Integer& b);
 	friend std::istream& operator >>(std::istream& a,Integer& b);
 };
+
