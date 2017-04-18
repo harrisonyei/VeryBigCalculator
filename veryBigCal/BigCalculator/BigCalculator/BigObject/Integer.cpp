@@ -97,7 +97,7 @@ Integer operator /(Integer& a,Integer& b){
 	
 	int lenA = tempA.StrNums().length();
 	int lenB = tempB.StrNums().length();
-	int maxSize = (lenA / lenB);
+	int maxSize = lenA;
 	int tempLen;
 
 	/*Call Division*/
@@ -106,7 +106,7 @@ Integer operator /(Integer& a,Integer& b){
 	} else if(tempA == tempB){
 		Result = Integer("1");
 	} else{
-		for(int i = 1;i <= maxSize;i++){
+		while((maxSize--)>0){
 			temp = Integer(Divi(tempA.StrNums().substr(0,lenB+1),tempB.StrNums()));
 			lenA = tempA.StrNums().length();
 			for(int j = 0;j < (lenA-lenB-1);j++){
@@ -324,7 +324,7 @@ std::string Divi(std::string& strA,std::string& strB){
 	Integer a = Integer(strA);
 	Integer b = Integer(strB);
 	Integer temp;
-	int l=0,r=99999999,mid=0;
+	int l=0,r=100,mid=0;
 	int result;
 	while(l <= r){
 		mid = (l + r) / 2;

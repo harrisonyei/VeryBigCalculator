@@ -5,16 +5,16 @@
 #include "GUI\CalculatorGUI.h"
 
 int main(void) {
-	clock_t tStart = clock();
+	
 	/* Do your stuff here */
-	Integer A = "12345689798499819819819181111876311111111119999999999999999999922222222929119191919191919199453";
-	Integer B = "94879453";
+	Integer A = "787878787878787878787878787878787878787878787878787878787878787878787878787878987987987498748974987489749874987498748974897498749874987498749874987498749874987498749874";
+	Integer B = "871561561561515612232126165";
+	clock_t tStart = clock();
 	Integer C = A / B;
+	printf("Time taken: %.2fs\n",(double)(clock() - tStart) / CLOCKS_PER_SEC);
 	std::string result = C.NumberObject::StrNums();
 	/*Test*/
-	printf("Time taken: %.2fs\n",(double)(clock() - tStart) / CLOCKS_PER_SEC);
 	std::cout << result << std::endl;
-		
 	system("PAUSE");
 	return 0;
 	
