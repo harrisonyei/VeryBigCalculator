@@ -126,10 +126,18 @@ Integer operator /(Integer& a,Integer& b){
 	return Result;
 }
 Integer operator ^(Integer& a,Integer& b){
-	return a;
+	Integer temp = "1";
+	for (Integer i = "0"; i < b; i = i + (Integer)"1"){
+		temp = temp * a;
+	}
+	return temp;
 }
 Integer operator !(Integer& a){
-	return a;
+	Integer temp = "1";
+	for (Integer i = "2"; i <= a; i +=(Integer)"1") {
+		temp = temp * i;
+	}
+	return temp;
 }
 
 bool operator ==(Integer& a,Integer& b){

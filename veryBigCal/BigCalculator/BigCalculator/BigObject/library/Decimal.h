@@ -9,9 +9,10 @@ private:
 	Integer nume; //¤À¤l
 	Integer deno; //¤À¥À
 	std::string strNume;
-	std::string strDeno;
+	std::string strDeno;	
 	// [NEED IMPLEMENT] String to decimal.
 	void StoD(std::string s);
+	void DtoS();
 
 public:
 	// Constructors.
@@ -22,6 +23,8 @@ public:
 	// Getter
 	Integer& Nume(){ return nume; }
 	Integer& Deno(){ return deno; }
+	
+	std::string dotExpress;
 
 	friend Decimal operator +(Decimal& a,Decimal& b);
 	friend Decimal operator -(Decimal& a,Decimal& b);

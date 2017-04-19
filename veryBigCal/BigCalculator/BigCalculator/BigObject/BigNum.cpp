@@ -3,17 +3,21 @@
 // Constructors.
 Integer::Integer():NumberObject(){
 	StoInt(NumberObject::StrNums());
+	ItoS(nums);
 }
 Integer::Integer(std::string s) : NumberObject(s){
 	StoInt(NumberObject::StrNums());
+	ItoS(nums);
 }
 Integer::Integer(Decimal d){
 	// [NOTFINISHED] 應該要回傳 -->(nume / deno) . nums;
-	nums = (d.Nume()).Nums();
+	nums = (d.Nume()/d.Deno()).Nums();
+	ItoS(nums);
 }
 Integer::Integer(Complex c){
 	// [NOTFINISHED] 應該要回傳 -->(nume / deno) . nums;
-	nums = ((c.Real()).Nume()).Nums();
+	nums = ((c.Real()).Nume()/(c.Real()).Deno()).Nums();
+	ItoS(nums);
 }
 
 // Constructors.

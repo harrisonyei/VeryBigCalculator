@@ -59,28 +59,69 @@ void Decimal::StoD(std::string s) {
 
 Decimal operator +(Decimal& a,Decimal& b){
 	Decimal c;
+	Integer tempa_nume;
+	Integer tempb_nume;	
+	tempa_nume = a.nume * b.deno;
+	tempb_nume = b.nume * a.deno;	
 	//[請先通分]
-	c.nume = a.nume + b.nume;
-	c.deno = a.deno;
+	c.nume = tempa_nume + tempb_nume;
+	c.deno = a.deno * b.deno;
 	return c;
 }
 Decimal operator -(Decimal& a,Decimal& b){
 	Decimal c;
+	Integer tempa_nume;
+	Integer tempb_nume;
+	tempa_nume = a.nume * b.deno;
+	tempb_nume = b.nume * a.deno;
 	//[請先通分]
-	c.nume = a.nume - b.nume;
-	c.deno = a.deno;
+	c.nume = tempa_nume - tempb_nume;
+	c.deno = a.deno * b.deno;
 	return c;
 }
 Decimal operator *(Decimal& a,Decimal& b){
 	Decimal c;
 	c.nume = a.nume * b.nume;
 	c.deno = a.deno * b.deno;
+	c.DtoS();
 	return c;
 }
 Decimal operator /(Decimal& a,Decimal& b){
 	Decimal c;
 	c.nume = a.nume * b.deno;
 	c.deno = a.deno * b.nume;
+	c.DtoS();
 	return c;
+}
+
+void Decimal::DtoS() {
+	//0/x -> "0"
+	if (nume.StrNums() == "0") {
+		dotExpress = "0"; 
+		return;
+	}
+	int dotPos = (nume/deno).NumberObject::StrNums().size();	
+	int addzero = nume > deno ? (nume / deno).NumberObject::StrNums().size() : (deno / nume).NumberObject::StrNums().size();
+	
+
+	std::string result;
+	Integer temp = nume;
+
+	//add 0
+	for (int i = 0; i < 100; i++) {
+		nume.StrNums() += "0";
+	}	
+	//nume = Integer(nume.StrNums());	
+	result = (nume / deno).StrNums();
+	
+	//0."00000"1
+	if (temp < deno) {
+		for (int i = 0; i < addzero; i++) {
+			result.insert(0, "0");
+		}
+	}
+				
+	result.insert(dotPos, ".");
+	dotExpress = result;
 }
 
