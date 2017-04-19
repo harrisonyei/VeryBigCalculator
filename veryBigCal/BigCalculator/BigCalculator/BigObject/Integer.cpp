@@ -95,7 +95,7 @@ Integer operator /(Integer& a,Integer& b){
 	Integer tempB = Integer(b.StrAbs());
 	Integer temp;
 	Integer Result;
-	
+
 	int lenA = tempA.StrNums().length();
 	int lenB = tempB.StrNums().length();
 	int tempLen;
@@ -106,16 +106,16 @@ Integer operator /(Integer& a,Integer& b){
 	} else if(tempA == tempB){
 		Result = Integer("1");
 	} else{
-		while(tempA>=tempB){
-			temp = Integer(Divi(tempA.StrNums().substr(0,lenB+7),tempB.StrNums()));
+		while(tempA >= tempB){
+			temp = Integer(Divi(tempA.StrNums().substr(0,lenB + 7),tempB.StrNums()));
 			tempLen = (temp*tempB).StrNums().length();
 			lenA = tempA.StrNums().length();
-			for(int j = 0;j < lenA-tempLen;j++){
+			for(int j = 0;j < lenA - tempLen;j++){
 				temp.NumberObject::StrNums() += "0";
 			}
 			temp.StoInt(temp.NumberObject::StrNums());
 			Result += temp;
-			tempA  -= (temp*tempB);
+			tempA -= (temp*tempB);
 		}
 	}
 
@@ -324,26 +324,24 @@ std::vector<long long> absv(std::vector<long long>& Nums){
 std::string Divi(std::string& strA,std::string& strB){
 	if(strB == "1"){
 		return strA;
-	}else if(strA.compare(strB) == 0){
+	} else if(strA.compare(strB) == 0){
 		return "1";
 	}
 	Integer a = Integer(strA);
 	Integer b = Integer(strB);
 	Integer temp;
-	int l=2,r= 99999999,mid;
+	int l = 0,r = 99999999,mid;
 	int result;
 	while(l <= r){
 		mid = (l + r) / 2;
 		temp = b * Integer(std::to_string(mid));
 		if(temp < a){
 			l = mid + 1,result = mid;
-		}
-		else if(temp > a){
+		} else if(temp > a){
 			r = mid - 1;
-		}
-		else{ 
+		} else{
 			result = mid;
-			break; 
+			break;
 		}
 	}
 	return std::to_string(result);
