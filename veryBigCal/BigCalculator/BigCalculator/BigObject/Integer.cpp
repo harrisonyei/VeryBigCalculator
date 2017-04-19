@@ -108,7 +108,7 @@ Integer operator /(Integer& a,Integer& b){
 	} else{
 		while(tempA >= tempB){
 			temp = Integer(Divi(tempA.StrNums().substr(0,lenB + 7),tempB.StrNums()));
-			tempLen = (temp*tempB).StrNums().length();
+			tempLen = tempA.StrNums().substr(0, lenB + 7).length();
 			lenA = tempA.StrNums().length();
 			for(int j = 0;j < lenA - tempLen;j++){
 				temp.NumberObject::StrNums() += "0";
