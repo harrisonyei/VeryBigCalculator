@@ -488,7 +488,9 @@ private: System::Void controlClear_Click(System::Object^  sender, System::EventA
 }
 private: System::Void operatorResult_Click(System::Object^  sender,System::EventArgs^  e){
 	const char* chars = (const char*)(System::Runtime::InteropServices::Marshal::StringToHGlobalAnsi(this->textBox1->Text)).ToPointer();
-	this->textBox1->Text = Convert::ToString(TestCore::CalQ(chars));
+	String^ str = gcnew String(TestCore::CalQ(chars).c_str());
+	this->textBox1->Text = str;
+	delete str;
 }
 };
 }

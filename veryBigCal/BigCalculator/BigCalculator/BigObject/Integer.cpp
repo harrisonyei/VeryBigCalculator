@@ -1,5 +1,6 @@
 
-#include<algorithm>
+#include <algorithm>
+#include <cmath>
 
 #include "../Operation/TestCore.h"
 #include "library\Integer.h"
@@ -97,7 +98,6 @@ Integer operator /(Integer& a,Integer& b){
 	
 	int lenA = tempA.StrNums().length();
 	int lenB = tempB.StrNums().length();
-	int maxSize = lenA;
 	int tempLen;
 
 	/*Call Division*/
@@ -106,10 +106,11 @@ Integer operator /(Integer& a,Integer& b){
 	} else if(tempA == tempB){
 		Result = Integer("1");
 	} else{
-		while((maxSize--)>0){
-			temp = Integer(Divi(tempA.StrNums().substr(0,lenB+1),tempB.StrNums()));
+		while(tempA>=tempB){
+			temp = Integer(Divi(tempA.StrNums().substr(0,lenB+7),tempB.StrNums()));
+			tempLen = (temp*tempB).StrNums().length();
 			lenA = tempA.StrNums().length();
-			for(int j = 0;j < (lenA-lenB-1);j++){
+			for(int j = 0;j < lenA-tempLen;j++){
 				temp.NumberObject::StrNums() += "0";
 			}
 			temp.StoInt(temp.NumberObject::StrNums());
@@ -321,10 +322,15 @@ std::vector<long long> absv(std::vector<long long>& Nums){
 }
 
 std::string Divi(std::string& strA,std::string& strB){
+	if(strB == "1"){
+		return strA;
+	}else if(strA.compare(strB) == 0){
+		return "1";
+	}
 	Integer a = Integer(strA);
 	Integer b = Integer(strB);
 	Integer temp;
-	int l=0,r=100,mid=0;
+	int l=2,r= 99999999,mid;
 	int result;
 	while(l <= r){
 		mid = (l + r) / 2;
