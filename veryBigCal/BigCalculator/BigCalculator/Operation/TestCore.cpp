@@ -2,7 +2,7 @@
 
 #define NUMBER -1
 using namespace std;
-void TestCore::Simplify(string& s,vector<double>& nums,vector<char>& ops){
+void TestCore::Simplify(string& s,vector<Integer>& nums,vector<char>& ops){
 	ClearWhite(s);
 	bool is_operator = true;
 	bool is_num = false;
@@ -13,20 +13,20 @@ void TestCore::Simplify(string& s,vector<double>& nums,vector<char>& ops){
 
 
 	for(int i = 0; i < s.length(); i++){
-		if((s[i] <= '9'&&s[i] >= '0') || s[i] == '.'){
+		if((s[i] <= '9'&&s[i] >= '0')){
 			is_operator = false;
 			is_num = true;
 			num.push_back(s[i]);
 		}// is number
 		else if(s[i] == '+' || s[i] == '-' || s[i] == '*' || s[i] == '/'){
 			if(is_num){
-				nums.push_back(stod(num));
+				nums.push_back(Integer(num));
 				ops.push_back(NUMBER);
 				num.clear();
 				is_num = false;
 			}
 			if(is_operator){
-				nums.push_back(-1.0);
+				nums.push_back(Integer("-1"));
 				ops.push_back(NUMBER);
 				if(op == '/')
 					Push(op_stack,ops,'/');
@@ -42,7 +42,7 @@ void TestCore::Simplify(string& s,vector<double>& nums,vector<char>& ops){
 			op_stack.push('(');
 		} else if(s[i] == ')'){
 			if(num.size()){
-				nums.push_back(stod(num));
+				nums.push_back(Integer(num));
 				ops.push_back(NUMBER);
 				num.clear();
 				is_num = false;
@@ -55,7 +55,7 @@ void TestCore::Simplify(string& s,vector<double>& nums,vector<char>& ops){
 		}
 	}//for loop
 	if(num.size()){
-		nums.push_back(stod(num));
+		nums.push_back(Integer(num));
 		ops.push_back(NUMBER);
 	}
 	for(int i = op_stack.size() - 1; i >= 0; i--){
@@ -74,11 +74,11 @@ void TestCore::ClearWhite(string& s){
 	s = temp;
 }
 
-double TestCore::Calculate(string& s){
-	vector<double> nums;
+string TestCore::Calculate(string& s){
+	vector<Integer> nums;
 	vector<char> ops;
-	stack<double> num_stack;
-	double answer = 0;
+	stack<Integer> num_stack;
+	Integer answer;
 
 	Simplify(s,nums,ops);
 
@@ -87,7 +87,7 @@ double TestCore::Calculate(string& s){
 			num_stack.push(nums[0]);
 			nums.erase(nums.begin());
 		} else{
-			double A,B,ans;
+			Integer A,B,ans;
 			B = num_stack.top();
 			num_stack.pop();
 			A = num_stack.top();
@@ -106,7 +106,7 @@ double TestCore::Calculate(string& s){
 	}
 	answer = num_stack.top();
 
-	return answer;
+	return answer.StrNums();
 }
 
 int TestCore::Priority(char op){

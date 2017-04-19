@@ -54,6 +54,9 @@
     <ClInclude Include="Operation\TestCore.h">
       <Filter>Header Files\Operation</Filter>
     </ClInclude>
+    <ClInclude Include="Operation\ErrorDetector.h">
+      <Filter>Header Files\Operation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BigObject\BigNum.cpp">
@@ -81,6 +84,9 @@
       <Filter>Resource Files\GUI</Filter>
     </ClCompile>
     <ClCompile Include="Operation\TestCore.cpp">
+      <Filter>Resource Files\Operation</Filter>
+    </ClCompile>
+    <ClCompile Include="Operation\ErrorDetector.cpp">
       <Filter>Resource Files\Operation</Filter>
     </ClCompile>
   </ItemGroup>

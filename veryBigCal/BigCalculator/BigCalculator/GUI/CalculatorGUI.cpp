@@ -1,5 +1,5 @@
-/*#include "CalculatorGUI.h"
-
+#include "CalculatorGUI.h"
+/*
 int main(array<System::String^> ^args) {
 	BigCalculator::Application::EnableVisualStyles();
 	BigCalculator::Application::SetCompatibleTextRenderingDefault(false);

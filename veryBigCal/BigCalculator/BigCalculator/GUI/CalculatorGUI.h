@@ -532,14 +532,14 @@ namespace BigCalculator {
 	}
 	private: System::Void operatorLBracket_Click(System::Object^  sender, System::EventArgs^  e) {
 		countBrackets++;
-		this->label1 -> Text = "±zÁÙ¤Ö¤F" + countBrackets + "­Ó¥k¬A¸¹";
+		this->label1 -> Text = "æ‚¨é‚„å°‘äº†" + countBrackets + "å€‹å³æ‹¬è™Ÿ";
 		this->textBox1->Text += this->operatorLBracket->Text;
 	}
 	private: System::Void operatorRBracket_Click(System::Object^  sender, System::EventArgs^  e) {
 		countBrackets--;
 		if (countBrackets >= 0) {
 			if (countBrackets > 0) {
-				this->label1->Text = "±zÁÙ¤Ö¤F" + countBrackets + "­Ó¥k¬A¸¹";
+				this->label1->Text = "æ‚¨é‚„å°‘äº†" + countBrackets + "å€‹å³æ‹¬è™Ÿ";
 			}
 			else {
 				this->label1->Text = "";
@@ -592,7 +592,7 @@ namespace BigCalculator {
 			}
 			this->textBox1->Text = this->textBox1->Text->Remove(this->textBox1->Text->Length - 1);
 			if (countBrackets > 0) {
-				this->label1->Text = "±zÁÙ¤Ö¤F" + countBrackets + "­Ó¥k¬A¸¹";
+				this->label1->Text = "æ‚¨é‚„å°‘äº†" + countBrackets + "å€‹å³æ‹¬è™Ÿ";
 			}
 			else {
 				this->label1->Text = "";
@@ -604,10 +604,12 @@ namespace BigCalculator {
 		this->label1->Text = "";		
 		this->textBox1->Text = "";
 
-	}
-	private: System::Void operatorResult_Click(System::Object^  sender, System::EventArgs^  e) {
-		const char* chars = (const char*)(System::Runtime::InteropServices::Marshal::StringToHGlobalAnsi(this->textBox1->Text)).ToPointer();
-		this->textBox1->Text = Convert::ToString(TestCore::CalQ(chars));
-	}
-	};
+}
+private: System::Void operatorResult_Click(System::Object^  sender,System::EventArgs^  e){
+	const char* chars = (const char*)(System::Runtime::InteropServices::Marshal::StringToHGlobalAnsi(this->textBox1->Text)).ToPointer();
+	String^ str = gcnew String(TestCore::CalQ(chars).c_str());
+	this->textBox1->Text = str;
+	delete str;
+}
+};
 }
