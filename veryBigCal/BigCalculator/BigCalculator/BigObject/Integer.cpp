@@ -30,7 +30,7 @@ Integer operator +(Integer& a,Integer& b){
 	int i,carry = 0;
 	if(b.nums[0] == 99999999){
 		toComp(b.nums);
-		c = a + b;
+		c = a - b;
 		toComp(b.nums);
 	} else{
 		for(i = N - 1; i >= 0; i--){
