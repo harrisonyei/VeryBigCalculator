@@ -37,6 +37,8 @@ public:
 	friend Integer operator +=(Integer& a,Integer& b);
 	friend Integer operator -=(Integer& a,Integer& b);
 	friend Integer operator !(Integer& a);
+
+	friend void Sqrt(Integer& a);
 	
 
 	friend bool operator ==(Integer& a,Integer& b);

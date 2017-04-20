@@ -13,6 +13,7 @@ std::vector<long long> Mult(std::vector<long long>&,int);
 void CarryOn(std::vector<long long>&);
 std::vector<long long> absv(std::vector<long long>&);
 std::string Divi(std::string& a,std::string& b);
+std::string SQRT(std::string& a,std::string& b);
 
 Integer operator +=(Integer& a,Integer& b){
 	a = a + b;
@@ -127,6 +128,7 @@ Integer operator /(Integer& a,Integer& b){
 }
 Integer operator ^(Integer& a,Integer& b){
 	Integer temp = "1";
+	
 	for (Integer i = "0"; i < b; i = i + (Integer)"1"){
 		temp = temp * a;
 	}
@@ -353,5 +355,59 @@ std::string Divi(std::string& strA,std::string& strB){
 		}
 	}
 	return std::to_string(result);
+}
+
+std::string SQRT(std::string& strA,std::string& strB){
+	Integer a = Integer(strA);
+	Integer b = Integer(strB);
+	Integer temp;
+	int l = 0,r = 9,mid;
+	int result;
+	while(l <= r){
+		mid  = (l + r) / 2;
+		temp = Integer(std::to_string(mid));
+		temp = (temp + b)*temp;
+		if(temp < a){
+			l = mid + 1,result = mid;
+		} else if(temp > a){
+			r = mid - 1;
+		} else{
+			result = mid;
+			break;
+		}
+	}
+	return std::to_string(result);
+}
+
+void Sqrt(Integer& a){
+	std::string strA = "1"+a.StrNums();
+	Integer TWO = "2";
+	Integer TEN = "10";
+	Integer tempA = strA;
+	Integer tempB;
+	Integer temp;
+	Integer temp2;
+	
+
+	int maxLen = a.StrNums().length();
+	int strLen = a.StrNums().length();
+	int flag = strLen % 2;
+
+	a = temp;
+
+	while((strLen+flag)>0){
+		temp2 = temp = Integer(SQRT(tempA.StrNums().substr(1,maxLen -strLen-flag+2),tempB.StrNums()+"0"));
+		tempB = tempB * TEN;
+		tempB += temp;
+		a = a * TEN;
+		a += temp;
+		for(int j = 0;j < (strLen + flag - 2);j+=2){
+			temp.NumberObject::StrNums() += "00";
+		}
+		temp.StoInt(temp.NumberObject::StrNums());
+		tempA -= (tempB*temp);
+		tempB += temp2;
+		strLen -= 2;
+	}
 }
 

@@ -4,7 +4,7 @@
 
 const int DECIMAL_POINT_SIZE = 100;
 
-class Decimal:NumberObject{
+class Decimal:public NumberObject{
 private:
 	Integer nume; //¤À¤l
 	Integer deno; //¤À¥À
