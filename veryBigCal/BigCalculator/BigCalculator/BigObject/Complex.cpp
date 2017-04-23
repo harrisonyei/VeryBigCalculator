@@ -17,12 +17,29 @@ void Complex::StoC(std::string s) {
 	std::string imaginaryprt;
 
 	//find position of operator
-	for (int i = 1; i < s.size(); i++) {
+	int i;
+	for (i = 1; i < s.size(); i++) {
 		if (s[i] == '+' || s[i] == '-') {
 			sign = s[i];
 			operatorPos = i;
 			break;
 		}
+	}
+
+	//there is only real part or imaginary part
+	if (i == s.size()) {
+		//real part
+		if (s.find("i") == std::string::npos) {
+			strReal = s;
+			strImag = "0";
+		}
+		else {
+			//imaginary part
+			strReal = "0";
+			s.erase(s.begin() + s.size() - 1);
+			strImag = s;
+		}
+		return;
 	}
 	//get substring from begin to position of operator
 	realprt = s.substr(0, operatorPos);
@@ -52,7 +69,7 @@ void Complex::StoC(std::string s) {
 Complex operator +(Complex& a,Complex& b){
 	Complex c;
 	c.real = a.real + b.real;
-	c.imag = a.imag + b.imag;
+	c.imag = a.imag + b.imag;		
 	return c;
 }
 Complex operator -(Complex& a,Complex& b){
@@ -61,13 +78,15 @@ Complex operator -(Complex& a,Complex& b){
 	c.imag = a.imag - b.imag;
 	return c;
 }
-Complex operator *(Complex& a,Complex& b){
+Complex operator *(Complex a,Complex b){
 	Complex c;
 	c.real = (a.real * b.real) - (a.imag * b.imag);
 	c.imag = (a.real * b.imag) + (a.imag * b.real);
 	return c;
 }
 Complex operator /(Complex& a,Complex& b){
-	// [NOT FINISHED]
-	return a;
+	Complex c;
+	c.real = (a.real*b.real + a.imag*b.imag) / (b.real*b.real + b.imag*b.imag);
+	c.imag = (a.imag*b.real - a.real*b.imag) / (b.real*b.real + b.imag*b.imag);
+	return c;	
 }
