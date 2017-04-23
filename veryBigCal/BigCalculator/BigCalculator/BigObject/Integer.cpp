@@ -28,19 +28,13 @@ Integer operator -=(Integer& a,Integer& b){
 Integer operator +(Integer& a,Integer& b){
 	Integer c = "0";
 	int i,carry = 0;
-	if(b.nums[0] == 99999999){
-		toComp(b.nums);
-		c = a - b;
-		toComp(b.nums);
-	} else{
-		for(i = N - 1; i >= 0; i--){
-			c.nums[i] = a.nums[i] + b.nums[i] + carry;
-			if(c.nums[i] < 100000000){
-				carry = 0;
-			} else{ // �i�� 
-				c.nums[i] = c.nums[i] - 100000000;
-				carry = 1;
-			}
+	for(i = N - 1; i >= 0; i--){
+		c.nums[i] = a.nums[i] + b.nums[i] + carry;
+		if(c.nums[i] < 100000000){
+			carry = 0;
+		} else{ // �i�� 
+			c.nums[i] = c.nums[i] - 100000000;
+			carry = 1;
 		}
 	}
 	c.ItoS(c.nums);
@@ -48,22 +42,9 @@ Integer operator +(Integer& a,Integer& b){
 }
 Integer operator -(Integer& a,Integer& b){
 	Integer c = "0";
-	int i,borrow = 0;
-	if(b.nums[0] == 99999999){
-		toComp(b.nums);
-		c = a + b;
-		toComp(b.nums);
-	} else{
-		for(i = N - 1; i >= 0; i--){
-			c.nums[i] = a.nums[i] - b.nums[i] - borrow;
-			if(c.nums[i] >= 0){
-				borrow = 0;
-			} else{ // �ɦ� 
-				c.nums[i] = c.nums[i] + 100000000;
-				borrow = 1;
-			}
-		}
-	}
+	toComp(b.nums);
+	c = a + b;
+	toComp(b.nums);
 	c.ItoS(c.nums);
 	return c;
 }
@@ -261,9 +242,18 @@ void Integer::StoInt(std::string s){
 		isPos = true;
 	}
 	num.clear();
+	for(char& c:s){
+		if(c >= '0' && c <= '9'){
+			num += c;
+		} else{
+			break;
+		}
+	}
+	s = num;
+	num.clear();
 	for(int i = s.length() - 1; i >= 0; i--){
 		num.push_back(s[i]);
-		if((s.length() - i) % MAXDIG == 0 || i == 0){
+		if(num.length() % MAXDIG == 0 || i == 0){
 			index = N - 1 - (s.length() - 1 - i) / MAXDIG;
 			std::reverse(num.begin(),num.end());
 			Nums[index] = atoi(num.c_str());
