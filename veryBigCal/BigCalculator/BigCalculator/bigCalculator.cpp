@@ -9,14 +9,12 @@ int main(void) {
 	//Do your stuff here 
 	Integer A = "3";
 	Decimal B = "3";
-	
+	aaaaaaaaaaa
 	clock_t tStart = clock();
 	Sqrt(A);
 	printf("Time taken: %.2fs\n", (double)(clock() - tStart) / CLOCKS_PER_SEC);
 	//Test
 	std::cout << A.StrNums() << std::endl;
-
-	system("PAUSE");
 	return 0;
-
+///////////////////////
 }
