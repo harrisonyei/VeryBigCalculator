@@ -6,7 +6,7 @@
 #include "GUI\CalculatorGUI.h"
 
 int main(void) {
-	
+	aaa
 	//Do your stuff here 
 	Integer A = "3";
 	Decimal B = "3";
