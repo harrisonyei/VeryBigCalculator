@@ -7,7 +7,7 @@
 
 int main(void) {
 	//Do your stuff here 
-	Integer A = "1214374657515674156741567416574567456715674657456175156717561257624122";
+	Integer A = "3";
 	Decimal B = "3";
 	
 	clock_t tStart = clock();
