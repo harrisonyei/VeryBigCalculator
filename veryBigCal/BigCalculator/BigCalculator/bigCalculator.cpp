@@ -4,7 +4,7 @@
 
 #include "BigObject\library\BigNum.h"
 #include "GUI\CalculatorGUI.h"
-xxxxxxxxxxxxxxxxxxxxx
+
 int main(void) {
 	//Do your stuff here 
 	Integer A = "3";
@@ -15,5 +15,5 @@ int main(void) {
 	//Test
 	std::cout << A.StrNums() << std::endl;
 	return 0;
-///////////////////////
+
 }
