@@ -25,7 +25,7 @@ void Complex::StoC(std::string s) {
 			break;
 		}
 	}
-
+	
 	//there is only real part or imaginary part
 	if (i == s.size()) {
 		//real part
@@ -35,17 +35,25 @@ void Complex::StoC(std::string s) {
 		}
 		else {
 			//imaginary part
+			//no digit before i -> 1i
+			if (s[s.size() - 2] > 57 || s[s.size() - 2] < 48) {
+				s.insert(s.size() - 1, "1");
+			}
 			strReal = "0";
-			s.erase(s.begin() + s.size() - 1);
+			s.erase(s.begin() + s.size() - 1);			
 			strImag = s;
 		}
 		return;
+	}
+	//no digit before i -> 1i
+	if (s[s.size() - 2] > 57 || s[s.size() - 2] < 48) {
+		s.insert(s.size() - 1, "1");
 	}
 	//get substring from begin to position of operator
 	realprt = s.substr(0, operatorPos);
 
 	//get substring from next position of operator to the end
-	imaginaryprt = s.substr(operatorPos + 1);
+	imaginaryprt = s.substr(operatorPos + 1);	
 
 	//delete 'i' from imaginary part
 	imaginaryprt.erase(imaginaryprt.begin() + imaginaryprt.size() - 1);
