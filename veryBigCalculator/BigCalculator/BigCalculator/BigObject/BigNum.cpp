@@ -25,37 +25,51 @@ Decimal::Decimal():NumberObject(){
 	StoD(NumberObject::StrNums());
 	nume = Integer(strNume);
 	deno = Integer(strDeno);
+	DtoS(nume,deno);
 }
 Decimal::Decimal(std::string s) : NumberObject(s){
 	StoD(NumberObject::StrNums());
 	nume = Integer(strNume);
 	deno = Integer(strDeno);
+	DtoS(nume,deno);
 }
 Decimal::Decimal(Integer& i){
 	nume = i;
 	deno = (Integer)"1";
+	DtoS(nume,deno);
 }
 Decimal::Decimal(Complex& c){
 	nume = (c.Real()).Nume();
 	deno = (c.Real()).Deno();
+	DtoS(nume,deno);
 }
 
 // Constructors.
 Complex::Complex():NumberObject(){
 	StoC(NumberObject::StrNums());
-	real = Integer(strReal);
-	imag = Integer(strImag);
+	real = Decimal(strReal);
+	imag = Decimal(strImag);
+	CtoS(real,imag);
 }
 Complex::Complex(std::string s) : NumberObject(s){
 	StoC(NumberObject::StrNums());
-	real = Integer(strReal);
-	imag = Integer(strImag);
+	real = Decimal(strReal);
+	imag = Decimal(strImag);
+	CtoS(real,imag);
 }
 Complex::Complex(Integer& i){
 	real = (Decimal)i;
 	imag = (Decimal)"0";
+	CtoS(real,imag);
 }
 Complex::Complex(Decimal& d){
 	real = d;
 	imag = (Decimal)"0";
+	CtoS(real,imag);
+}
+Complex::Complex(NumberObject& n){
+	StoC(n.StrNums());
+	real = Decimal(strReal);
+	imag = Decimal(strImag);
+	CtoS(real,imag);
 }

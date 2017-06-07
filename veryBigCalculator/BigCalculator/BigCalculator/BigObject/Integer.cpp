@@ -5,7 +5,7 @@
 #include "../Operation/TestCore.h"
 #include "library\Integer.h"
 
-#define N 300
+#define N 1000
 #define MAXDIG 8
 
 void toComp(std::vector<long long>&);
@@ -15,17 +15,17 @@ std::vector<long long> absv(std::vector<long long>&);
 std::string Divi(std::string& a,std::string& b);
 std::string SQRT(std::string& a,std::string& b);
 
-Integer operator +=(Integer& a,Integer& b){
+Integer operator +=(Integer& a,Integer b){
 	a = a + b;
 	a.ItoS(a.nums);
 	return a;
 }
-Integer operator -=(Integer& a,Integer& b){
+Integer operator -=(Integer& a,Integer b){
 	a = a - b;
 	a.ItoS(a.nums);
 	return a;
 }
-Integer operator +(Integer& a,Integer& b){
+Integer operator +(Integer& a,Integer b){
 	Integer c = "0";
 	int i,carry = 0;
 	for(i = N - 1; i >= 0; i--){
@@ -40,7 +40,7 @@ Integer operator +(Integer& a,Integer& b){
 	c.ItoS(c.nums);
 	return c;
 }
-Integer operator -(Integer& a,Integer& b){
+Integer operator -(Integer& a,Integer b){
 	Integer c = "0";
 	toComp(b.nums);
 	c = a + b;
@@ -48,7 +48,7 @@ Integer operator -(Integer& a,Integer& b){
 	c.ItoS(c.nums);
 	return c;
 }
-Integer operator *(Integer& a,Integer& b){
+Integer operator *(Integer& a,Integer b){
 	int i;
 	std::vector<long long> tempA = absv(a.nums);
 	std::vector<long long> tempB = absv(b.nums);
@@ -72,7 +72,7 @@ Integer operator *(Integer& a,Integer& b){
 	Result.ItoS(Result.nums);
 	return Result;
 }
-Integer operator /(Integer& a,Integer& b){
+Integer operator /(Integer& a,Integer b){
 	Integer tempA = Integer(a.StrAbs());
 	Integer tempB = Integer(b.StrAbs());
 	Integer temp;
@@ -107,9 +107,43 @@ Integer operator /(Integer& a,Integer& b){
 	Result.ItoS(Result.nums);
 	return Result;
 }
-Integer operator ^(Integer& a,Integer& b){
+Integer operator %(Integer& a,Integer b){
+	Integer tempA = Integer(a.StrAbs());
+	Integer tempB = Integer(b.StrAbs());
+	Integer temp;
+	Integer Result;
+
+	int lenA = tempA.StrNums().length();
+	int lenB = tempB.StrNums().length();
+	int tempLen;
+
+	/*Call Division*/
+	if(tempA < tempB){
+		Result = tempA;
+	} else if(tempA == tempB){
+		Result = Integer("0");
+	} else{
+		while(tempA >= tempB){
+			temp = Integer(Divi(tempA.StrNums().substr(0,lenB + 7),tempB.StrNums()));
+			tempLen = tempA.StrNums().substr(0,lenB + 7).length();
+			lenA = tempA.StrNums().length();
+			for(int j = 0;j < lenA - tempLen;j++){
+				temp.NumberObject::StrNums() += "0";
+			}
+			temp.StoInt(temp.NumberObject::StrNums());
+			tempA -= (temp*tempB);
+		}
+		Result = tempA;
+	}
+
+	if((a.nums[0] == 99999999 && b.nums[0] == 0) || (a.nums[0] == 0 && b.nums[0] == 99999999)){
+		toComp(Result.nums);
+	}
+	Result.ItoS(Result.nums);
+	return Result;
+}
+Integer operator ^(Integer& a,Integer b){
 	Integer temp = "1";
-	
 	for (Integer i = "0"; i < b; i = i + (Integer)"1"){
 		temp = temp * a;
 	}
@@ -131,6 +165,9 @@ bool operator ==(Integer& a,Integer& b){
 		}
 	}
 	return true;
+}
+bool operator !=(Integer& a,Integer& b){
+	return !(a == b);
 }
 bool operator >(Integer& a,Integer& b){
 	int i;
@@ -220,9 +257,11 @@ bool operator <=(Integer& a,Integer& b){
 }
 
 std::ostream& operator <<(std::ostream& out,Integer& b){
-	return out;
+	return out << b.StrNums();
 }
 std::istream& operator >> (std::istream& in,Integer& b){
+	in >> b.StrNums();
+	b.StoInt(b.StrNums());
 	return in;
 }
 
@@ -281,6 +320,8 @@ void Integer::ItoS(std::vector<long long>& Nums){
 		NumberObject::StrNums().erase(NumberObject::StrNums().begin());
 	};
 	if(Nums[0] == 99999999){ NumberObject::StrNums() = "-" + NumberObject::StrNums(); }
+
+	ShowStrNums() = StrNums();
 }
 
 void toComp(std::vector<long long>& Nums){
@@ -369,8 +410,8 @@ std::string SQRT(std::string& strA,std::string& strB){
 	return std::to_string(result);
 }
 
-void Sqrt(Integer& a){
-	std::string strA = "1"+a.StrNums();
+void Integer::Sqrt(){
+	std::string strA = "1"+ (*this).StrNums();
 	Integer TWO = "2";
 	Integer TEN = "10";
 	Integer tempA = strA;
@@ -379,18 +420,18 @@ void Sqrt(Integer& a){
 	Integer temp2;
 	
 
-	int maxLen = a.StrNums().length();
-	int strLen = a.StrNums().length();
+	int maxLen = (*this).StrNums().length();
+	int strLen = (*this).StrNums().length();
 	int flag = strLen % 2;
 
-	a = temp;
+	(*this) = temp;
 
 	while((strLen+flag)>0){
 		temp2 = temp = Integer(SQRT(tempA.StrNums().substr(1,maxLen -strLen-flag+2),tempB.StrNums()+"0"));
 		tempB = tempB * TEN;
 		tempB += temp;
-		a = a * TEN;
-		a += temp;
+		(*this) = (*this) * TEN;
+		(*this) += temp;
 		for(int j = 0;j < (strLen + flag - 2);j+=2){
 			temp.NumberObject::StrNums() += "00";
 		}

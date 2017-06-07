@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\BigObject">
+      <UniqueIdentifier>{5c4f314f-d147-472a-b3ed-3ebb46901813}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Operation">
+      <UniqueIdentifier>{172214ad-6077-4783-aca8-8d8438c26bcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\BigObject">
+      <UniqueIdentifier>{ddee45be-03c4-46fb-a215-fa4d7c65a9c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\GUI">
+      <UniqueIdentifier>{e6f7556f-f184-41e7-8d4f-96fb811583f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Operation">
+      <UniqueIdentifier>{a0d2414b-eefd-45bd-a08a-d9f82cb75b22}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BigObject\library\BigNum.h">
+      <Filter>Header Files\BigObject</Filter>
+    </ClInclude>
+    <ClInclude Include="BigObject\library\Complex.h">
+      <Filter>Header Files\BigObject</Filter>
+    </ClInclude>
+    <ClInclude Include="BigObject\library\Decimal.h">
+      <Filter>Header Files\BigObject</Filter>
+    </ClInclude>
+    <ClInclude Include="BigObject\library\Integer.h">
+      <Filter>Header Files\BigObject</Filter>
+    </ClInclude>
+    <ClInclude Include="BigObject\library\NumberObject.h">
+      <Filter>Header Files\BigObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Operation\TestCore.h">
+      <Filter>Header Files\Operation</Filter>
+    </ClInclude>
+    <ClInclude Include="Operation\ConsoleUI.h">
+      <Filter>Header Files\Operation</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BigObject\BigNum.cpp">
+      <Filter>Resource Files\BigObject</Filter>
+    </ClCompile>
+    <ClCompile Include="BigObject\Complex.cpp">
+      <Filter>Resource Files\BigObject</Filter>
+    </ClCompile>
+    <ClCompile Include="BigObject\Decimal.cpp">
+      <Filter>Resource Files\BigObject</Filter>
+    </ClCompile>
+    <ClCompile Include="BigObject\Integer.cpp">
+      <Filter>Resource Files\BigObject</Filter>
+    </ClCompile>
+    <ClCompile Include="bigCalculator.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Operation\TestCore.cpp">
+      <Filter>Resource Files\Operation</Filter>
+    </ClCompile>
+    <ClCompile Include="Operation\ConsoleUI.cpp">
+      <Filter>Resource Files\GUI</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
