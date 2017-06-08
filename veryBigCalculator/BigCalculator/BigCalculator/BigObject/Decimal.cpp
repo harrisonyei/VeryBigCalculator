@@ -23,14 +23,14 @@ std::string Decimal::toComplexPrec(){
 void Decimal::StoD(std::string s){
 	std::string legalChar = "0123456789.";
 	std::string newS;
-	for(char&c : s){
+	for(char&c : s.substr(1)){
 		if(legalChar.find(c) == std::string::npos){
 			break;
 		} else{
 			newS += c;
 		}
 	}
-	s = newS;
+	s = s[0] + newS;
 	std::string numerator;
 	std::string denominator = "1";
 
@@ -93,13 +93,13 @@ void Decimal::DtoS(Integer& nume,Integer& deno){
 	// Step.3 backtrack point pos.
 	result = quotient.StrNums();
 	int strLen = result.length();
-	for(int i = 105 - strLen;i >=0 ;i--){
+	for(int i = 105 - strLen;i >= 0;i--){
 		result = "0" + result;
 		strLen++;
 	}
 
 	result.insert(strLen - 105,".");
-	
+
 	if((nume.IsPositive() ^ deno.IsPositive())){
 		result = "-" + result;
 	}
@@ -156,7 +156,7 @@ Decimal operator ^(Decimal& a,Decimal b){
 	Integer One = "1";
 	Integer pow = b.AbsStrNums();
 	bool isNeg = false;
-	if(b.StrNums()[0]=='-'){
+	if(b.StrNums()[0] == '-'){
 		isNeg = true;
 	}
 	for(Integer i = "0";i < pow;i += One){
@@ -165,7 +165,7 @@ Decimal operator ^(Decimal& a,Decimal b){
 		} else{
 			c = c * a;
 		}
-		
+
 	}
 	c.DtoS(c.nume,c.deno);
 	return c;
@@ -199,7 +199,7 @@ Decimal Decimal::Sqrt(){
 	nume.Sqrt();
 	deno.Sqrt();
 	// Divi them.
-	return ((Decimal)nume / (Decimal)deno)+(Decimal)"0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001";
+	return ((Decimal)nume / (Decimal)deno) + (Decimal)"0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001";
 }
 
 bool operator ==(Decimal& a,Decimal& b){
@@ -212,10 +212,10 @@ bool operator <(Decimal& a,Decimal& b){
 	return ((a.nume*b.deno)<(b.nume*a.deno));
 }
 bool operator >=(Decimal& a,Decimal& b){
-	return ((a.nume*b.deno)>=(b.nume*a.deno));
+	return ((a.nume*b.deno) >= (b.nume*a.deno));
 }
 bool operator <=(Decimal& a,Decimal& b){
-	return ((a.nume*b.deno)<=(b.nume*a.deno));
+	return ((a.nume*b.deno) <= (b.nume*a.deno));
 }
 bool operator !=(Decimal& a,Decimal& b){
 	return (a.StrNums() != b.StrNums());
@@ -223,7 +223,7 @@ bool operator !=(Decimal& a,Decimal& b){
 
 std::ostream& operator <<(std::ostream& out,Decimal& b){
 	int pos = b.StrNums().find('.');
-	return out << b.StrNums().substr(0,pos+101);
+	return out << b.StrNums().substr(0,pos + 101);
 }
 std::istream& operator >> (std::istream& in,Decimal& b){
 	in >> b.StrNums();
