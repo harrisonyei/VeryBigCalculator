@@ -1,2 +1,2 @@
 # VeryBigCalculator
-![](https://github.com/harrisonyei/VeryBigCalculator/edit/master/example.PNG)
+![](https://github.com/harrisonyei/VeryBigCalculator/edit/master/example.PNG?raw=true)
