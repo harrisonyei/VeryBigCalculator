@@ -1,7 +1,2 @@
 # VeryBigCalculator
-## BigCalculator
-### NotThatBigCalculator
-#### Calculator
-##### TinyCalculator
-###### VeryTinyCalculator
-
+![image](https://github.com/harrisonyei/VeryBigCalculator/edit/master/example.PNG)
